@@ -14,6 +14,7 @@ namespace MATMEH_QUEST
         [STAThread]
         static void Main()
         {
+            Console.Write("Hello world");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
