@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
-using MATMEH_QUEST.Domain.Item;
+using static MATMEH_QUEST.Domain.Item;
 
 namespace MATMEH_QUEST.Domain
 {
     public class Inventory
     {
-        private HashSet<item> items;
+        private HashSet<Item> items;
         public Inventory()
         {
-            items = new HashSet<item>();
+            items = new HashSet<Item>();
         }
 
-        public item PutItem()
+        public void PutItem(Item item)
         {
-            
+            items.Add(item);
         }
 
-        public item TakeItem()
+        public void TakeItem()
         {
             
         }
