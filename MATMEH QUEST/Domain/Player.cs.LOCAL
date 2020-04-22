@@ -2,7 +2,6 @@
 {
     public class Player
     {
-<<<<<<< HEAD
         public Player()
         {
             Health = 100;
@@ -31,8 +30,5 @@
         {
             state = PlayerState.Dead;
         }
-=======
-        
->>>>>>> parent of 034d769... Обновил Player
     }
 }
