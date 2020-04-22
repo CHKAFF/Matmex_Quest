@@ -2,10 +2,13 @@
 {
     public class Item
     {
-        public int id { get; }
-        public Item(int id)
+        public int MissionID;
+        public int ObjectID;
+
+        public Item(int missionId, int objectId)
         {
-            this.id = id;
+            MissionID = missionId;
+            ObjectID = objectId;
         }
     }
 }
