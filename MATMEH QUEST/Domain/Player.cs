@@ -1,9 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System.Data.Common;
 using System.Drawing;
 =======
 ﻿using System.Drawing;
 >>>>>>> origin/class_Player
+=======
+﻿using System.Data.Common;
+using System.Drawing;
+>>>>>>> 034d769b898d3fa97d35cb6181287baf1e481e98
 
 namespace MATMEH_QUEST.Domain
 {
@@ -11,6 +16,9 @@ namespace MATMEH_QUEST.Domain
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 034d769b898d3fa97d35cb6181287baf1e481e98
         private Point location;
         private int health;
         private Inventory inventory;
@@ -20,6 +28,7 @@ namespace MATMEH_QUEST.Domain
             this.location = location;
             this.health = health;
             this.inventory = inventory;
+<<<<<<< HEAD
 =======
         public Player()
 =======
@@ -54,6 +63,8 @@ namespace MATMEH_QUEST.Domain
         {
             state = PlayerState.Dead;
 >>>>>>> class_Player
+=======
+>>>>>>> 034d769b898d3fa97d35cb6181287baf1e481e98
         }
     }
 }
