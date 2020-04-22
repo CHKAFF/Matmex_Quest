@@ -1,11 +1,14 @@
-﻿namespace MATMEH_QUEST.Domain
+﻿using System.Drawing;
+
+namespace MATMEH_QUEST.Domain
 {
     public class Player
     {
-        public Player()
+        public Player(Point location, int health)
         {
-            Health = 100;
+            this.Health = health;
             state = PlayerState.Alive;
+            this.Location = location;
         }
         private enum PlayerState
         {
@@ -15,6 +18,7 @@
         
         public int Health;
         private PlayerState state;
+        public Point Location;
 
         public bool IsAlive()
         {
