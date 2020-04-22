@@ -51,6 +51,7 @@
     <Compile Include="Domain\Game.cs" />
     <Compile Include="Domain\Human.cs" />
     <Compile Include="Domain\ICollectableItems.cs" />
+    <Compile Include="Domain\ILife.cs" />
     <Compile Include="Domain\Inventory.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\Player.cs" />

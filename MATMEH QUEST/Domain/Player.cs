@@ -2,8 +2,13 @@ using System.Drawing;
 
 namespace MATMEH_QUEST.Domain
 {
-    public class Player
+    public class Player : ILife
     {
+        
+        public int Health;
+        private PlayerState state;
+        public Point Location;
+        
         public Player(Point location, int health)
         {
             this.Health = health;
@@ -16,13 +21,9 @@ namespace MATMEH_QUEST.Domain
             Dead
         }
 
-        public int Health;
-        private PlayerState state;
-        public Point Location;
-
         public bool IsAlive()
         {
-            return Health > 0;
+            return Health > 0 && state == PlayerState.Alive;
         }
 
         public void TakeDamage(int damage)
