@@ -11,6 +11,11 @@ namespace MATMEH_QUEST.Domain
             items = new HashSet<Item>();
         }
 
+        public bool InInventory(Item item)
+        {
+            return items.Contains(item);
+        }
+
         public void PutItem(Item item)
         {
             items.Add(item);
