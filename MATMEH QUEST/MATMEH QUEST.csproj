@@ -49,8 +49,8 @@
     <Compile Include="Domain\Door.cs" />
     <Compile Include="Domain\Enemy.cs" />
     <Compile Include="Domain\Game.cs" />
+    <Compile Include="Domain\Human.cs" />
     <Compile Include="Domain\ICollectableItems.cs" />
-    <Compile Include="Domain\IHuman.cs" />
     <Compile Include="Domain\Inventory.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\Player.cs" />
