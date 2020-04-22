@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 ﻿using System.Data.Common;
 using System.Drawing;
+=======
+﻿using System.Drawing;
+>>>>>>> origin/class_Player
 
 namespace MATMEH_QUEST.Domain
 {
     public class Player
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         private Point location;
         private int health;
@@ -17,9 +22,13 @@ namespace MATMEH_QUEST.Domain
             this.inventory = inventory;
 =======
         public Player()
+=======
+        public Player(Point location, int health)
+>>>>>>> origin/class_Player
         {
-            Health = 100;
+            this.Health = health;
             state = PlayerState.Alive;
+            this.Location = location;
         }
         private enum PlayerState
         {
@@ -29,6 +38,7 @@ namespace MATMEH_QUEST.Domain
         
         public int Health;
         private PlayerState state;
+        public Point Location;
 
         public bool IsAlive()
         {
