@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MATMEH QUEST", "MATMEH QUEST.csproj", "{356AD6F6-C530-4D56-A0BC-7008BB648E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTS", "..\TESTS\TESTS.csproj", "{0DBE62ED-D41F-40A3-85FF-33063A38479B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{356AD6F6-C530-4D56-A0BC-7008BB648E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356AD6F6-C530-4D56-A0BC-7008BB648E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356AD6F6-C530-4D56-A0BC-7008BB648E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356AD6F6-C530-4D56-A0BC-7008BB648E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBE62ED-D41F-40A3-85FF-33063A38479B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBE62ED-D41F-40A3-85FF-33063A38479B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBE62ED-D41F-40A3-85FF-33063A38479B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBE62ED-D41F-40A3-85FF-33063A38479B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F89EF78-5CB6-41FC-BE9A-291D8FCBE195}
+	EndGlobalSection
+EndGlobal
