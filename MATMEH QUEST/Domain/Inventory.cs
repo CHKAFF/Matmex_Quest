@@ -16,9 +16,9 @@ namespace MATMEH_QUEST.Domain
             items.Add(item);
         }
 
-        public void TakeItem()
+        public void TakeItem(Item item)
         {
-            
+            items.Remove(item);
         }
     }
 }
