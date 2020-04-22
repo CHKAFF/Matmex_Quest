@@ -52,6 +52,7 @@
     <Compile Include="Domain\ICollectableItems.cs" />
     <Compile Include="Domain\IHuman.cs" />
     <Compile Include="Domain\Inventory.cs" />
+    <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\Player.cs" />
     <Compile Include="Domain\World.cs" />
     <Compile Include="Form1.cs">
