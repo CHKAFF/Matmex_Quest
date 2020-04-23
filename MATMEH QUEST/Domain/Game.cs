@@ -20,12 +20,26 @@ namespace MATMEH_QUEST.Domain
             World = new World();
             Player = new Player(new Point(0,0),100);
             Inventory = new Inventory();
+            Save();
         }
 
         public void Load()
         {
+            XDocument xdoc = XDocument.Load("Data/SaveData.xml");
+            XElement save = xdoc.Element("saves").Elements("save").ToList().First();
             World = new World();
-            Player = new Player();
+        }
+
+        public void Save()
+        {
+            XDocument xdoc = XDocument.Load("Data/SaveData.xml");
+            XElement root = xdoc.Element("saves");
+            root.Add(new XElement("save",
+                new XAttribute("name", "NewSave"),
+                new XElement("World", World),
+                new XElement("Player", Player),
+                new XElement("Inventory", Inventory)));
+            xdoc.Save("Data/SaveData.xml");
         }
     }
 }
