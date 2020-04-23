@@ -18,12 +18,14 @@
 
         public bool IsAlive()
         {
-            return Health > 0 && state == PlayerState.Alive;
+            return state == PlayerState.Alive;
         }
 
         public void TakeDamage(int damage)
         {
             Health -= damage;
+            if (Health <= 0)
+                state = PlayerState.Dead;
         }
 
         public void Dead()

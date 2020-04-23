@@ -6,7 +6,7 @@ namespace MATMEH_QUEST.Domain
 {
     public class Inventory
     {
-        private Dictionary<Item, int> items;
+        public Dictionary<Item, int> items;
         public Inventory()
         {
             items = new Dictionary<Item, int>();
