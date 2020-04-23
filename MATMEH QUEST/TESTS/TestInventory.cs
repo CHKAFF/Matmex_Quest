@@ -10,12 +10,13 @@ namespace TESTS
     [TestFixture]
     public class TestInventory
     {
-        public Inventory innventory;
-        public Item item;
+        private Inventory inventory;
+        private Item item;
         [SetUp]
         public void SetUp()
         {
-            innventory
+            inventory = new Inventory();
+            item = new Item(1,1);
         }
 
         [Test]
@@ -27,8 +28,7 @@ namespace TESTS
         [Test]
         public void TestPutItem()
         {
-            var item = new Item(1,1);
-            var inventory = new Inventory();
+            SetUp();
             inventory.PutItem(item);
             var actual = inventory.items.ContainsKey(item);
             Assert.AreEqual(true, actual);
@@ -37,8 +37,7 @@ namespace TESTS
         [Test]
         public void TestPutItemWhenInventoryHaveThisItem()
         {
-            var item = new Item(1,1);
-            var inventory = new Inventory();
+            SetUp();
             inventory.PutItem(item);
             inventory.PutItem(item);
             var actual = inventory.items.Count;
@@ -48,8 +47,7 @@ namespace TESTS
         [Test]
         public void TestInInventoryWhenItemInInventory()
         {
-            var item = new Item(1,1); 
-            var inventory = new Inventory(); 
+            SetUp();
             inventory.PutItem(item);
             var actual = inventory.InInventory(item);
             Assert.AreEqual(true, actual);
@@ -58,8 +56,7 @@ namespace TESTS
         [Test]
         public void TestInInventoryWhenItemNotInInventory()
         {
-            var item = new Item(1,1); 
-            var inventory = new Inventory(); 
+            SetUp();
             var actual = inventory.InInventory(item);
             Assert.AreEqual(false, actual);
         }
@@ -67,8 +64,7 @@ namespace TESTS
         [Test]
         public void TestCountInInventory()
         {
-            var item = new Item(1,1);
-            var inventory = new Inventory(); 
+            SetUp();
             inventory.PutItem(item);
             inventory.PutItem(item);
             var actual = inventory.items[item];
@@ -78,8 +74,7 @@ namespace TESTS
         [Test]
         public void TestGetItemCount()
         {
-            var item = new Item(1,1);
-            var inventory = new Inventory(); 
+            SetUp();
             inventory.PutItem(item);
             inventory.PutItem(item);
             inventory.PutItem(item);
@@ -91,8 +86,7 @@ namespace TESTS
         [Test]
         public void TestTakeItem()
         {
-            var item = new Item(1,1);
-            var inventory = new Inventory(); 
+            SetUp();
             inventory.PutItem(item);
             inventory.TakeItem(item);
             var actual = inventory.InInventory(item);
