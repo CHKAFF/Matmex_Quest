@@ -50,6 +50,7 @@
         </e>
         <e p="TestDoor.cs" t="Include" />
         <e p="TestInventory.cs" t="Include" />
+        <e p="TestItem.cs" t="Include" />
         <e p="TESTS.csproj" t="IncludeRecursive" />
       </e>
     </e>

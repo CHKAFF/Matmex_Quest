@@ -48,6 +48,7 @@
     <Compile Include="TestDoor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestInventory.cs" />
+    <Compile Include="TestItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
