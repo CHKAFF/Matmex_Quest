@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MATMEH_QUEST.Domain
 {
     public class Human
@@ -11,10 +13,12 @@ namespace MATMEH_QUEST.Domain
         }
 
         private HumanState state;
+        private List<int> expectedItems;
 
-        public Human(HumanState state) 
+        public Human(HumanState state, List<int> expectedItems) 
         {
             this.state = state;
+            this.expectedItems = expectedItems;
         }
 
         public bool IsReady()
@@ -37,10 +41,15 @@ namespace MATMEH_QUEST.Domain
             state = HumanState.Awaiting;
         }
         
-        public bool GiveItem(Item item)
+        public bool IsCorrectItem(Item item)
         {
             return (state == HumanState.Awaiting && item.MissionID == MissionID) ? true : false;
         }
-    }
+
+        public void RemoveBroughtItem(Item item)
+        {
+            if (IsCorrectItem(item))
+                expectedItems.Remove(item.ObjectID);
+        }
     }
 }
