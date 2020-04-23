@@ -2,31 +2,31 @@
 {
     public class Door
     {
-        public enum State
+        public enum DoorState
         {
             Close,
             Open
         }
-        private State state;
+        public DoorState State;
 
-        public Door(State state)
+        public Door(DoorState state)
         {
-            this.state = state;
+            this.State = state;
         }
 
         public bool IsOpen()
         {
-            return state == State.Open;
+            return State == DoorState.Open;
         }
 
         public void Open()
         {
-            state = State.Open;
+            State = DoorState.Open;
         }
 
         public void Close()
         {
-            state = State.Close;
+            State = DoorState.Close;
         }
     }
 }

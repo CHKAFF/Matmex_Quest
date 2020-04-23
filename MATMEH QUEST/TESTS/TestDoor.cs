@@ -8,19 +8,40 @@ namespace TESTS
     [TestFixture]
     public class TestDoor
     {
-        [SetUp]
-        public Door SetUp()
-        {
-            return new Door(Door.State.Close);
-        }
-
         [Test]
-        public void Test1()
+        public void TestDoorOpen()
         {
-            var door = SetUp();
-            var excepted = new Door(Door.State.Open);
+            var door = new Door(Door.DoorState.Close);
             door.Open();
-            Assert.AreEqual(excepted, door);
+            var actual = door.State;
+            var excepted = new Door(Door.DoorState.Open).State;
+            Assert.AreEqual(excepted, actual);
+        }
+        
+        [Test]
+        public void TestDoorClose()
+        {
+            var door = new Door(Door.DoorState.Open);
+            door.Close();
+            var actual = door.State;
+            var excepted = new Door(Door.DoorState.Close).State;
+            Assert.AreEqual(excepted, actual);
+        }
+        
+        [Test]
+        public void TestIsOpenWhenDoorOpen()
+        {
+            var door = new Door(Door.DoorState.Open);
+            var actual = door.IsOpen();
+            Assert.AreEqual(true, actual);
+        }
+        
+        [Test]
+        public void TestIsOpenWhenDoorClose()
+        {
+            var door = new Door(Door.DoorState.Close);
+            var actual = door.IsOpen();
+            Assert.AreEqual(false, actual);
         }
     }
 }
