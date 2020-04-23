@@ -19,8 +19,15 @@ namespace TESTS
         public void TestEnemyIsAlive()
         {
             var enemy = new Enemy(50).IsAlive();
-            var actual = true;
-            Assert.AreEqual(true, actual);
+            Assert.AreEqual(true, enemy);
+        }
+
+        [Test]
+        public void TestEnemyWasAliveButNowDead()
+        {
+            var enemy = new Enemy(30);
+            enemy.TakeDamage(75);
+            Assert.AreEqual(false, enemy.IsAlive());
         }
     }
 }
