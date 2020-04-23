@@ -10,6 +10,7 @@ namespace TESTS
         public void Test1()
         {
             Assert.True(true);
+            Assert.AreEqual(2,2);
         }
     }
 }
