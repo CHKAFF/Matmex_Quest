@@ -5,17 +5,17 @@ namespace MATMEH_QUEST.Domain
 {
     public class World
     {
-        private readonly double height;
-        private readonly double width;
         public List<Door> Doors{ get; set; }
         public List<Human> Humans { get; set; }
         public List<Enemy> Enemies { get; set; }
         public HashSet<Item> LevelItems { get; set; }
 
-        public World(double height, double width)
+        public World(List<Door> doors, List<Human> humans, List<Enemy> enemies, HashSet<Item> levelItems)
         {
-            this.height = height;
-            this.width = width;
+            this.Doors = doors;
+            this.Humans = humans;
+            this.Enemies = enemies;
+            this.LevelItems = levelItems;
         }
 
     }
