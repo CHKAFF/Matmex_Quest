@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35bc18a3-1547-4eaf-8670-65fbf0831336" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TESTS/TestItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TESTS/TESTS.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/TESTS.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Human.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Human.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Domain/Human.cs" />
         <option value="$PROJECT_DIR$/Domain/ILife.cs" />
         <option value="$PROJECT_DIR$/Domain/Player.cs" />
         <option value="$PROJECT_DIR$/Domain/Enemy.cs" />
@@ -50,6 +48,7 @@
         <option value="$PROJECT_DIR$/Domain/Inventory.cs" />
         <option value="$PROJECT_DIR$/TESTS/TestInventory.cs" />
         <option value="$PROJECT_DIR$/TESTS/TestItem.cs" />
+        <option value="$PROJECT_DIR$/Domain/Human.cs" />
       </list>
     </option>
   </component>
