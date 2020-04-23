@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MATMEH QUEST.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MATMEH QUEST.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MATMEH QUEST.sln" beforeDir="false" afterPath="$PROJECT_DIR$/MATMEH QUEST.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TESTS/TESTS.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../TESTS/TESTS.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +31,8 @@
     <setting file="file://$PROJECT_DIR$/Domain/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Domain/Item.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../TESTS/UnitTest1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TESTS/Tests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TESTS/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -45,6 +47,7 @@
         <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/Domain/Game.cs" />
         <option value="$PROJECT_DIR$/../TESTS/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/TESTS/Tests.cs" />
       </list>
     </option>
   </component>
@@ -115,10 +118,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="144" key="Rider.ProjectTemplateDialog.Size" timestamp="1587659259172">
+    <state x="361" y="144" key="Rider.ProjectTemplateDialog.Size" timestamp="1587660505692">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Rider.ProjectTemplateDialog.Size/0.0.1536.824@0.0.1536.824" timestamp="1587659259172" />
+    <state x="361" y="144" key="Rider.ProjectTemplateDialog.Size/0.0.1536.824@0.0.1536.824" timestamp="1587660505692" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587528663988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
