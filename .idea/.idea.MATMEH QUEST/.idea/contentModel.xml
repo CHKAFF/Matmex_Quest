@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\DNS\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\DNS\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_MATMEH QUEST.-1146798666.00" t="ExcludeRecursive" />
+    <e p="C:\Users\DNS\Desktop\gitProject\Matmex_Quest" t="IncludeRecursive">
+      <e p="MATMEH QUEST.csproj" t="IncludeRecursive" />
+      <e p="MATMEH QUEST.sln" t="IncludeFlat" />
+    </e>
+    <e p="C:\Users\DNS\Desktop\gitProject\TESTS" t="IncludeRecursive">
+      <e p="TESTS.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
