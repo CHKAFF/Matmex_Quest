@@ -15,9 +15,9 @@ namespace MATMEH_QUEST.Domain
             
         }
 
-        public void New()
+        public void New(World world)
         {
-            World = new World();
+            this.World = world;
             Player = new Player(new Point(0,0),100);
             Inventory = new Inventory();
             Save();
@@ -27,7 +27,6 @@ namespace MATMEH_QUEST.Domain
         {
             XDocument xdoc = XDocument.Load("Data/SaveData.xml");
             XElement save = xdoc.Element("saves").Elements("save").ToList().First();
-            World = new World();
         }
 
         public void Save()

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35bc18a3-1547-4eaf-8670-65fbf0831336" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MATMEH QUEST/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Game.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,13 +119,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Program.cs</url>
-          <line>17</line>
+          <line>18</line>
           <properties documentPath="$PROJECT_DIR$/Program.cs" initialLine="19">
             <startOffsets>
-              <option value="377" />
+              <option value="404" />
             </startOffsets>
             <endOffsets>
-              <option value="406" />
+              <option value="433" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
