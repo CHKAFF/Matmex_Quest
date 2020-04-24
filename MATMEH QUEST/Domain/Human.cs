@@ -12,44 +12,44 @@ namespace MATMEH_QUEST.Domain
             NotReady
         }
 
-        private HumanState state;
-        private List<int> expectedItems;
+        public HumanState State;
+        public List<Item> expectedItems;
 
-        public Human(HumanState state, List<int> expectedItems) 
+        public Human(HumanState state, List<Item> expectedItems) 
         {
-            this.state = state;
+            this.State = state;
             this.expectedItems = expectedItems;
         }
 
         public bool IsReady()
         {
-            return state == HumanState.Ready;
+            return State == HumanState.Ready;
         }
 
         public void MakeReady()
         {
-            state = HumanState.Ready;
+            State = HumanState.Ready;
         }
 
         public void MakeNotReady()
         {
-            state = HumanState.NotReady;
+            State = HumanState.NotReady;
         }
 
         public void MakeAwaiting()
         {
-            state = HumanState.Awaiting;
+            State = HumanState.Awaiting;
         }
         
         public bool IsCorrectItem(Item item)
         {
-            return (state == HumanState.Awaiting && item.MissionID == MissionID) ? true : false;
+            return (State == HumanState.Awaiting && item.MissionID == MissionID) ? true : false;
         }
 
         public void RemoveBroughtItem(Item item)
         {
             if (IsCorrectItem(item))
-                expectedItems.Remove(item.ObjectID);
+                expectedItems.Remove(item);
         }
     }
 }
