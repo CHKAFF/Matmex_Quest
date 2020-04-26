@@ -14,10 +14,12 @@ namespace MATMEH_QUEST.Domain
             Close,
             Open
         }
+        
         public DoorState State;
 
-        public Door(DoorState state, Room room = null)
+        public Door(DoorState state, Room room, Point location)
         {
+            this.Location = location;
             this.State = state;
             this.Room = room;
 

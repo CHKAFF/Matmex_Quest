@@ -40,12 +40,12 @@ namespace MATMEH_QUEST.Domain
 
         public void MoveLeft()
         {
-            
+            Location.X += 1;
         }
 
         public void MoveRight()
         {
-            
+            Location.X -= 1;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Security.Policy;
 
 namespace MATMEH_QUEST.Domain
@@ -14,10 +15,10 @@ namespace MATMEH_QUEST.Domain
         {
             for (int i = 1; i < 10; i++)
             {
-                Doors[i] = new Door(Door.DoorState.Close, new Room());
+                Doors[i] = new Door(Door.DoorState.Close, new Room(), new Point(i, 0));
             }
             var decRoom = new Room(new List<Human>(){new Human(Human.HumanState.Ready)});
-            Doors[10] = new Door(Door.DoorState.Open, decRoom);
+            Doors[10] = new Door(Door.DoorState.Open, decRoom, new Point(15, 0));
         }
     }
 }
