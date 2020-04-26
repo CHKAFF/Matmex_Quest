@@ -2,6 +2,7 @@
 {
     public class Door
     {
+        public Room Room;
         public enum DoorState
         {
             Close,
@@ -9,9 +10,11 @@
         }
         public DoorState State;
 
-        public Door(DoorState state)
+        public Door(DoorState state, Room room)
         {
             this.State = state;
+            this.Room = room;
+
         }
 
         public bool IsOpen()
@@ -28,5 +31,11 @@
         {
             State = DoorState.Close;
         }
+
+        public Room EnterRoom()
+        {
+            return Room;
+        }
+
     }
 }
