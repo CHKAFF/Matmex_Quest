@@ -1,8 +1,14 @@
-﻿namespace MATMEH_QUEST.Domain
+﻿using System.Drawing;
+
+namespace MATMEH_QUEST.Domain
 {
     public class Door
     {
+        public Point Location;
+        public int Height = 100;
+        public int Width = 200;
         public Room Room;
+        
         public enum DoorState
         {
             Close,
