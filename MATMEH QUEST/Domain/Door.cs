@@ -16,7 +16,7 @@ namespace MATMEH_QUEST.Domain
         }
         public DoorState State;
 
-        public Door(DoorState state, Room room)
+        public Door(DoorState state, Room room = null)
         {
             this.State = state;
             this.Room = room;
