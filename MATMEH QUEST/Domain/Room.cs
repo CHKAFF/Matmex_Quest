@@ -8,9 +8,11 @@ namespace MATMEH_QUEST.Domain
         public List<Enemy> Enemies { get; set; }
         public List<Item> LevelItems { get; set; }
 
-        public Room()
+        public Room(List<Human> humans = null,List<Enemy> enemies = null, List<Item> levelItems = null)
         {
-            
+            this.Humans = humans;
+            this.Enemies = enemies;
+            this.LevelItems = levelItems;
         }
     }
 }
