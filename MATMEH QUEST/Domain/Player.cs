@@ -38,19 +38,14 @@ namespace MATMEH_QUEST.Domain
             state = PlayerState.Dead;
         }
 
-        public void Move(string key)
+        public void MoveLeft()
         {
-            switch (key)
-            {
-                case "d":
-                    if (Location.X + 1 > 0)
-                        Location.X += 1;
-                    break;
-                case "a":
-                    if (Location.X - 1 > 0)
-                        Location.X -= 1;
-                    break;
-            }
+            
+        }
+
+        public void MoveRight()
+        {
+            
         }
     }
 }
