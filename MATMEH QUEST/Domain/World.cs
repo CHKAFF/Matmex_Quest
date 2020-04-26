@@ -5,18 +5,17 @@ namespace MATMEH_QUEST.Domain
 {
     public class World
     {
-        public List<Door> Doors{ get; set; }
+        public Dictionary<int, Door> Doors{ get; set; }
         public List<Human> Humans { get; set; }
         public List<Enemy> Enemies { get; set; }
         public HashSet<Item> LevelItems { get; set; }
 
-        public World(List<Door> doors, List<Human> humans, List<Enemy> enemies, HashSet<Item> levelItems)
+        public World()
         {
-            this.Doors = doors;
-            this.Humans = humans;
-            this.Enemies = enemies;
-            this.LevelItems = levelItems;
+            for (int i = 1; i <= 10; i++)
+            {
+                Doors[i] = new Door(Door.DoorState.Close, new Room());
+            }
         }
-
     }
 }
