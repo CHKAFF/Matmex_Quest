@@ -15,6 +15,7 @@
         <e p="Inventory.cs" t="Include" />
         <e p="Item.cs" t="Include" />
         <e p="Player.cs" t="Include" />
+        <e p="Room.cs" t="Include" />
         <e p="World.cs" t="Include" />
       </e>
       <e p="Form1.cs" t="Include" />
@@ -50,6 +51,7 @@
         </e>
         <e p="TestDoor.cs" t="Include" />
         <e p="TestEnemy.cs" t="Include" />
+        <e p="TestHuman.cs" t="Include" />
         <e p="TestInventory.cs" t="Include" />
         <e p="TestItem.cs" t="Include" />
         <e p="TESTS.csproj" t="IncludeRecursive" />
