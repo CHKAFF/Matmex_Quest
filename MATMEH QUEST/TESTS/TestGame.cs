@@ -12,14 +12,12 @@ namespace TESTS
         public void GlobalTest()
         {
             var game = new Game();
-            var player = game.Player;
-            var inventory = game.Inventory;
-            var startPosition = player.Location.X;
+            var startPosition = game.Player.Location.X;
             for (int i = 0; i < 10; i++)
             {
-                player.MoveRight();
+                game.Player.MoveRight();
             }
-            Assert.AreEqual(startPosition+10, player.Location.X);
+            Assert.AreEqual(startPosition+10, game.Player.Location.X);
             game.EnterInRoom();
             Assert.AreNotEqual(game.room, null);
         }
