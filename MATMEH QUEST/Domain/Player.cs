@@ -47,5 +47,16 @@ namespace MATMEH_QUEST.Domain
         {
             Location.X -= 1;
         }
+
+        public void MoveUp()
+        {
+            Location.Y -= 1;
+        }
+
+        public void MoveDown()
+        {
+            Location.Y += 1;
+        }
+
     }
 }
