@@ -44,6 +44,5 @@ namespace MATMEH_QUEST.Domain
         {
             return Room;
         }
-
     }
 }

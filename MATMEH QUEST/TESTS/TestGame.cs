@@ -15,11 +15,11 @@ namespace TESTS
             var player = game.Player;
             var inventory = game.Inventory;
             var startPosition = player.Location.X;
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 player.MoveRight();
             }
-            Assert.AreEqual(startPosition+10, player.Location.X);
+            Assert.AreEqual(startPosition + 10, player.Location.X);
             game.EnterInRoom();
             Assert.AreNotEqual(game.room, null);
         }

@@ -27,11 +27,11 @@ namespace MATMEH_QUEST.Domain
 
         public void EnterInRoom()
         {
-            foreach (var d in World.Doors)
+            foreach (var door in World.Doors)
             {
-                if (Math.Abs(d.Value.Location.X - Player.Location.X) <= 10)
-                    if (d.Value.IsOpen())
-                        room = d.Value.Room;
+                if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 10)
+                    if (door.Value.IsOpen())
+                        room = door.Value.Room;
             }
         }
 

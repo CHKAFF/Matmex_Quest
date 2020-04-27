@@ -10,10 +10,11 @@ namespace MATMEH_QUEST.Domain
         public List<Human> Humans { get; set; }
         public List<Enemy> Enemies { get; set; }
         public HashSet<Item> LevelItems { get; set; }
-
+        private int[] availableX = {23, 45};
+        private int[] availableY = {6700, 2389};
         public World()
         {
-            for (int i = 1; i < 10; i++)
+            for (var i = 1; i < 10; i++)
             {
                 Doors[i] = new Door(Door.DoorState.Close, new Room(), new Point(i, 0));
             }
