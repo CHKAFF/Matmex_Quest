@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace MATMEH_QUEST.Domain
 {
@@ -20,6 +21,10 @@ namespace MATMEH_QUEST.Domain
 
         public Item GetItem(Point click)
         {
+            foreach (var element in LevelItems.Where(x => x.Location == click))
+            {
+                return element;
+            }
             var item = LevelItems[0];
             LevelItems.RemoveAt(0);
             return item;
