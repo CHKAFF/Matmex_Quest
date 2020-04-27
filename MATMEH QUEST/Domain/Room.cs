@@ -16,5 +16,13 @@ namespace MATMEH_QUEST.Domain
             this.Enemies = enemies;
             this.LevelItems = levelItems;
         }
+
+        public Item GetItem()
+        {
+            var item = LevelItems[0];
+            LevelItems.RemoveAt(0);
+            return item;
+        }
+
     }
 }

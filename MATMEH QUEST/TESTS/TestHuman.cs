@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MATMEH_QUEST.Domain;
 using NUnit.Framework;
@@ -13,7 +14,7 @@ namespace TESTS
         [SetUp]
         public void SetUp()
         {
-            human = new Human(Human.HumanState.Ready, new List<Item>());
+            human = new Human(Human.HumanState.Ready,0, new Point(1,1), new List<Item>());
         }
         [Test]
         public void TestHumanIsReady()

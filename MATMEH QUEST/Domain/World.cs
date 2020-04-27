@@ -14,12 +14,15 @@ namespace MATMEH_QUEST.Domain
         private int[] availableY = {6700, 2389};
         public World()
         {
-            for (var i = 1; i < 10; i++)
+            Doors = new Dictionary<int, Door>();
+            var firstRoom = new Room(levelItems: new List<Item>(){new Item(0,0)});
+            Doors[0] = new Door(Door.DoorState.Close, firstRoom, new Point(5, 0));
+            for (var i = 600; i < 610; i++)
             {
                 Doors[i] = new Door(Door.DoorState.Close, new Room(), new Point(i, 0));
             }
-            var decRoom = new Room(new List<Human>(){new Human(Human.HumanState.Ready)});
-            Doors[10] = new Door(Door.DoorState.Open, decRoom, new Point(15, 0));
+            var decRoom = new Room(new List<Human>(){new Human(Human.HumanState.Ready, 0, new Point(20, 15))});
+            Doors[10] = new Door(Door.DoorState.Open, decRoom, new Point(25, 0));
         }
     }
 }

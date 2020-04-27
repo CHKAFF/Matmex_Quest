@@ -11,26 +11,36 @@ namespace TESTS
         [Test]
         public void GlobalTest()
         {
-            var game = new Game();
-<<<<<<< HEAD
+            var game = new Game(); 
+            game.New();
             var startPosition = game.Player.Location.X;
-            for (int i = 0; i < 10; i++)
-=======
             var player = game.Player;
             var inventory = game.Inventory;
-            var startPosition = player.Location.X;
-            for (var i = 0; i < 10; i++)
->>>>>>> class_Player
+            for (var i = 0; i < 20; i++)
             {
                 game.Player.MoveRight();
             }
-<<<<<<< HEAD
-            Assert.AreEqual(startPosition+10, game.Player.Location.X);
-=======
-            Assert.AreEqual(startPosition + 10, player.Location.X);
->>>>>>> class_Player
+            Assert.AreEqual(startPosition+20, player.Location.X);
+            var locationInWorld = game.Player.Location;
             game.EnterInRoom();
             Assert.AreNotEqual(game.room, null);
+            for (var i = 0; i < 10; i++)
+            {
+                game.Player.MoveRight();
+            }
+            game.TalkWithHuman();
+            Assert.AreEqual(game.World.Doors[game.room.Humans[0].MissionID].State, Door.DoorState.Open);
+            game.LeaveFromRoom();
+            Assert.AreEqual(game.room, null);
+            Assert.AreEqual(locationInWorld, game.Player.Location);
+            for (var i = 0; i < 20; i++)
+            {
+                game.Player.MoveLeft();
+            }
+            game.EnterInRoom();
+            game.Inventory.PutItem(game.room.GetItem());
+            Assert.AreEqual(0, game.room.LevelItems.Count);
+            Assert.AreEqual(1,game.Inventory.items.Count);
         }
     }
 }

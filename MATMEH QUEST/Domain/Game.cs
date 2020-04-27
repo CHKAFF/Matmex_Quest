@@ -12,6 +12,7 @@ namespace MATMEH_QUEST.Domain
         public Player Player;
         public Inventory Inventory;
         public Room room;
+        private Point pointInWorld;
         public Game()
         {
             
@@ -20,7 +21,7 @@ namespace MATMEH_QUEST.Domain
         public void New()
         {
             this.World = new World();
-            Player = new Player(new Point(0,0),100);
+            Player = new Player(new Point(10,10),100);
             Inventory = new Inventory();
             room = null;
         }
@@ -31,13 +32,36 @@ namespace MATMEH_QUEST.Domain
             {
                 if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 10)
                     if (door.Value.IsOpen())
+                    {
                         room = door.Value.Room;
+                        pointInWorld = Player.Location;
+                        Player.Location = new Point(0,10);
+                        break;
+                    }
             }
         }
 
         public void LeaveFromRoom()
         {
-            room = null;
+            if (room != null)
+            {
+                room = null;
+                Player.Location = pointInWorld;
+            }
+        }
+        
+        public void TalkWithHuman()
+        {
+            var humans = room != null ? room.Humans : World.Humans;
+            foreach (var human in humans)
+            {
+                if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
+                    if (human.IsReady())
+                    {
+                        World.Doors[human.MissionID].State = Door.DoorState.Open;
+                        human.State = Human.HumanState.Awaiting;
+                    }
+            }
         }
     }
 }

@@ -20,8 +20,9 @@ namespace MATMEH_QUEST.Domain
         public HumanState State;
         public List<Item> expectedItems;
 
-        public Human(HumanState state, List<Item> expectedItems = null, int missionID = 0)
+        public Human(HumanState state, int missionID,Point location, List<Item> expectedItems = null)
         {
+            Location = location;
             this.MissionID = missionID;
             this.State = state;
             this.expectedItems = expectedItems;
