@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace MATMEH_QUEST.Domain
 {
@@ -17,7 +18,7 @@ namespace MATMEH_QUEST.Domain
             this.LevelItems = levelItems;
         }
 
-        public Item GetItem()
+        public Item GetItem(Point click)
         {
             var item = LevelItems[0];
             LevelItems.RemoveAt(0);
