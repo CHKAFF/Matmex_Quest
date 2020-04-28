@@ -16,10 +16,19 @@ namespace TESTS
         {
             human = new Human(Human.HumanState.Ready,0, new Point(1,1), new List<Item>());
         }
+
         [Test]
         public void TestHumanIsReady()
         {
             
+            Assert.AreEqual(true, human.IsReady());
+        }
+
+        [Test]
+        public void TestMakeHumanReady()
+        {
+            human.MakeAwaiting();
+            human.MakeReady();
             Assert.AreEqual(true, human.IsReady());
         }
 

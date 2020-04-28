@@ -44,5 +44,12 @@ namespace TESTS
             var actual = door.IsOpen();
             Assert.AreEqual(false, actual);
         }
+
+        [Test]
+        public void TestEnterInRoom()
+        {
+            var door = new Door(Door.DoorState.Close, new Room(), new Point(1, 0));
+            Assert.AreNotEqual(door.EnterRoom(), null);
+        }
     }
 }
