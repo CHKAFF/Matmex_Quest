@@ -8,7 +8,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Domain" t="Include">
         <e p="Door.cs" t="Include" />
-        <e p="Enemy.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="Human.cs" t="Include" />
         <e p="ILife.cs" t="Include" />
@@ -50,7 +49,6 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="TestDoor.cs" t="Include" />
-        <e p="TestEnemy.cs" t="Include" />
         <e p="TestGame.cs" t="Include" />
         <e p="TestHuman.cs" t="Include" />
         <e p="TestInventory.cs" t="Include" />

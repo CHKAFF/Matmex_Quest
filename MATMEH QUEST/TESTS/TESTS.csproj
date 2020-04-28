@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="TestDoor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestEnemy.cs" />
     <Compile Include="TestGame.cs" />
     <Compile Include="TestHuman.cs" />
     <Compile Include="TestInventory.cs" />

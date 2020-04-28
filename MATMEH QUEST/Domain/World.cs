@@ -8,7 +8,6 @@ namespace MATMEH_QUEST.Domain
     {
         public Dictionary<int, Door> Doors{ get; set; }
         public List<Human> Humans { get; set; }
-        public List<Enemy> Enemies { get; set; }
         public HashSet<Item> LevelItems { get; set; }
         private int[] availableX = {23, 45};
         private int[] availableY = {6700, 2389};

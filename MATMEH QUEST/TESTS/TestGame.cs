@@ -14,13 +14,11 @@ namespace TESTS
             var game = new Game(); 
             game.New();
             var startPosition = game.Player.Location.X;
-            var player = game.Player;
-            var inventory = game.Inventory;
             for (var i = 0; i < 20; i++)
             {
                 game.Player.MoveRight();
             }
-            Assert.AreEqual(startPosition+20, player.Location.X);
+            Assert.AreEqual(startPosition+20, game.Player.Location.X);
             var locationInWorld = game.Player.Location;
             game.EnterInRoom();
             Assert.AreNotEqual(game.room, null);
@@ -33,10 +31,12 @@ namespace TESTS
             game.LeaveFromRoom();
             Assert.AreEqual(game.room, null);
             Assert.AreEqual(locationInWorld, game.Player.Location);
+            startPosition = game.Player.Location.X;
             for (var i = 0; i < 20; i++)
             {
                 game.Player.MoveLeft();
             }
+            Assert.AreEqual(startPosition-20, game.Player.Location.X);
             game.EnterInRoom();
             game.Inventory.PutItem(game.room.GetItem(new Point(15, 15)));
             Assert.AreEqual(0, game.room.LevelItems.Count);
