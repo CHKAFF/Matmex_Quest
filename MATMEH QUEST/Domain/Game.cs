@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Xml.Linq;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MATMEH_QUEST.Domain
 {
@@ -60,6 +61,24 @@ namespace MATMEH_QUEST.Domain
                     {
                         World.Doors[human.MissionID].State = Door.DoorState.Open;
                         human.State = Human.HumanState.Awaiting;
+                    }
+            }
+        }
+
+        public void GiveItem(Item item)
+        {
+            foreach (var human in room.Humans)
+            {
+                if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
+                    if (human.State == Human.HumanState.Awaiting)
+                    {
+                        if (human.IsCorrectItem(item))
+                        {
+                            human.RemoveBroughtItem(item);
+                            if (human.expectedItems.Count == 0)
+                                human.MakeNotReady();
+                            Inventory.TakeItem(item);
+                        }
                     }
             }
         }
