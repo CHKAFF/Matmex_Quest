@@ -23,11 +23,11 @@ namespace MATMEH_QUEST.Domain
         {
             foreach (var element in LevelItems.Where(x => x.Location == click))
             {
+                LevelItems.Remove(element);
                 return element;
             }
-            var item = LevelItems[0];
-            LevelItems.RemoveAt(0);
-            return item;
+
+            return null;
         }
 
     }

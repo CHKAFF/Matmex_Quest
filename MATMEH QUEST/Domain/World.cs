@@ -15,7 +15,7 @@ namespace MATMEH_QUEST.Domain
         public World()
         {
             Doors = new Dictionary<int, Door>();
-            var firstRoom = new Room(levelItems: new List<Item>(){new Item(0,0)});
+            var firstRoom = new Room(levelItems: new List<Item>(){new Item(0,0, new Point(15, 15))});
             Doors[0] = new Door(Door.DoorState.Close, firstRoom, new Point(5, 0));
             for (var i = 600; i < 610; i++)
             {

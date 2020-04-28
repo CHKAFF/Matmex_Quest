@@ -38,7 +38,7 @@ namespace TESTS
                 game.Player.MoveLeft();
             }
             game.EnterInRoom();
-            game.Inventory.PutItem(game.room.GetItem(player.Location));
+            game.Inventory.PutItem(game.room.GetItem(new Point(15, 15)));
             Assert.AreEqual(0, game.room.LevelItems.Count);
             Assert.AreEqual(1,game.Inventory.items.Count);
         }

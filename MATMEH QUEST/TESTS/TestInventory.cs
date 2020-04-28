@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using MATMEH_QUEST;
 using MATMEH_QUEST.Domain;
@@ -16,7 +17,7 @@ namespace TESTS
         public void SetUp()
         {
             inventory = new Inventory();
-            item = new Item(1,1);
+            item = new Item(1,1, new Point(1,2));
         }
 
         [Test]
