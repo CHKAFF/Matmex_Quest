@@ -21,6 +21,7 @@ namespace MATMEH_QUEST
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             var timer = new Timer();
+            
         }
     }
 }
