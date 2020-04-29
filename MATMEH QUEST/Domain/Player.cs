@@ -2,40 +2,15 @@ using System.Drawing;
 
 namespace MATMEH_QUEST.Domain
 {
-    public class Player : ILife
+    public class Player 
     {
-        
-        public int Health;
-        private PlayerState state;
         public Point Location;
         public int Height = 100;
         public int Width = 200;
         
-        public Player(Point location, int health)
+        public Player(Point location)
         {
-            this.Health = health;
-            state = PlayerState.Alive;
             this.Location = location;
-        }
-        private enum PlayerState
-        {
-            Alive,
-            Dead
-        }
-
-        public bool IsAlive()
-        {
-            return Health > 0 && state == PlayerState.Alive;
-        }
-
-        public void TakeDamage(int damage)
-        {
-            Health -= damage;
-        }
-
-        public void Dead()
-        {
-            state = PlayerState.Dead;
         }
 
         public void MoveLeft()

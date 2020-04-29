@@ -22,7 +22,7 @@ namespace MATMEH_QUEST.Domain
         public void New()
         {
             this.World = new World();
-            Player = new Player(new Point(10,10),100);
+            Player = new Player(new Point(10,10));
             Inventory = new Inventory();
             room = null;
         }

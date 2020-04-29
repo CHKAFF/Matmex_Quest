@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using MATMEH_QUEST.Domain;
 
 namespace MATMEH_QUEST
@@ -19,6 +20,7 @@ namespace MATMEH_QUEST
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            var timer = new Timer();
         }
     }
 }
