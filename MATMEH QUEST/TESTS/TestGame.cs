@@ -17,7 +17,7 @@ namespace TESTS
             var startPosition = game.Player.Location.X;
             for (var i = 0; i < 20; i++)
             {
-                game.Player.MoveRight();
+                game.PlayerMoveRight();
             }
             Assert.AreEqual(startPosition+20, game.Player.Location.X);
             var locationInWorld = game.Player.Location;
@@ -25,7 +25,7 @@ namespace TESTS
             Assert.AreNotEqual(game.room, null);
             for (var i = 0; i < 10; i++)
             {
-                game.Player.MoveRight();
+                game.PlayerMoveRight();
             }
             game.TalkWithHuman();
             Assert.AreEqual(game.World.Doors[game.room.Humans[0].MissionID].State, Door.DoorState.Open);
@@ -35,7 +35,7 @@ namespace TESTS
             startPosition = game.Player.Location.X;
             for (var i = 0; i < 20; i++)
             {
-                game.Player.MoveLeft();
+                game.PlayerMoveLeft();
             }
             Assert.AreEqual(startPosition-20, game.Player.Location.X);
             game.EnterInRoom();
@@ -45,12 +45,12 @@ namespace TESTS
             game.LeaveFromRoom();
             for (var i = 0; i < 20; i++)
             {
-                game.Player.MoveRight();
+                game.PlayerMoveRight();
             }
             game.EnterInRoom();
             for (var i = 0; i < 10; i++)
             {
-                game.Player.MoveRight();
+                game.PlayerMoveRight();
             }
             game.GiveItem(game.Inventory.items.Keys.ToList().FirstOrDefault());
             Assert.AreEqual(0, game.room.Humans[0].expectedItems.Count);

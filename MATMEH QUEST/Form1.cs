@@ -14,7 +14,7 @@ namespace MATMEH_QUEST
     {
         public Form1()
         {
-            InitializeComponent();
+            
         }
     }
 }

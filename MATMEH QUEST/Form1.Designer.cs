@@ -1,4 +1,11 @@
-﻿namespace MATMEH_QUEST
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace MATMEH_QUEST
 {
     partial class Form1
     {
@@ -20,28 +27,12 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+        protected override void OnPaint(PaintEventArgs e)
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 562);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
+            var graphics = e.Graphics;
+            var newImage = Image.FromFile()
+            graphics.DrawImage();
         }
-
-        #endregion
     }
 }
 
