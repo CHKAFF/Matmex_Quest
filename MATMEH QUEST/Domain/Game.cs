@@ -82,5 +82,19 @@ namespace MATMEH_QUEST.Domain
                     }
             }
         }
+
+        public void PlayerMoveRight()
+        {
+            var borders = room == null ? World.availableX : room.availableX;
+            if (Player.Location.X + 1 < borders[1]) 
+                Player.Location.X += 1;
+        }
+        
+        public void PlayerMoveLeft()
+        {
+            var borders = room == null ? World.availableX : room.availableX;
+            if (Player.Location.X + 1 > borders[0]) 
+                Player.Location.X -= 1;
+        }
     }
 }

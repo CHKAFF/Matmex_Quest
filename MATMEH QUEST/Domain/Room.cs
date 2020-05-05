@@ -9,8 +9,8 @@ namespace MATMEH_QUEST.Domain
     {
         public List<Human> Humans { get; set; }
         public List<Item> LevelItems { get; set; }
-        private int[] availableX = {23, 45};
-        private int[] availableY = {6700, 2389};
+        public int[] availableY = {23, 45};
+        public int[] availableX = {6700, 2389};
 
         public Room(List<Human> humans = null, List<Item> levelItems = null)
         {

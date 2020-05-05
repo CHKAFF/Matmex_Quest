@@ -12,15 +12,5 @@ namespace MATMEH_QUEST.Domain
         {
             this.Location = location;
         }
-
-        public void MoveLeft()
-        {
-            Location.X -= 1;
-        }
-
-        public void MoveRight()
-        {
-            Location.X += 1;
-        }
     }
 }
