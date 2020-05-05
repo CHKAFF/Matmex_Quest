@@ -19,6 +19,7 @@
       </e>
       <e p="Form1.cs" t="Include" />
       <e p="Form1.Designer.cs" t="Include" />
+      <e p="Form1.resx" t="Include" />
       <e p="MATMEH QUEST.csproj" t="IncludeRecursive" />
       <e p="MATMEH QUEST.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
