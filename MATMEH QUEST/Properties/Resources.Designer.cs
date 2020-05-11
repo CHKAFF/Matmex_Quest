@@ -73,6 +73,16 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Bottom_part {
+            get {
+                object obj = ResourceManager.GetObject("Bottom_part", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap фон {
             get {
                 object obj = ResourceManager.GetObject("фон", resourceCulture);
