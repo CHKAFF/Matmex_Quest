@@ -76,7 +76,7 @@ namespace MATMEH_QUEST
             BackgroundImageLayout = ImageLayout.Stretch;
 
 
-            var playerImage = new Bitmap(Resources.Player);
+            var playerImage = new Bitmap(controller.Game.Player.Sprite);
             graphics.DrawImage(playerImage, new PointF(controller.Game.Player.Location.X, controller.Game.Player.Location.Y));
         }
 

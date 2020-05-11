@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Xml.Linq;
 using System.Linq;
 using System.Windows.Forms;
+using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST.Domain
 {
@@ -82,15 +83,30 @@ namespace MATMEH_QUEST.Domain
         public void PlayerMoveRight()
         {
             var borders = Room == null ? World.availableX : Room.availableX;
-            if (Player.Location.X + 1 < borders[1]) 
+            if (Player.Location.X + 1 < borders[1])
+            {
+                if (!Player.isRight)
+                {
+                    Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
+                    Player.isRight = true;
+                }
                 Player.Location.X += 0.1f;
+                Player.isRight = true;
+            }
         }
         
         public void PlayerMoveLeft()
         {
             var borders = Room == null ? World.availableX : Room.availableX;
-            if (Player.Location.X + 1 > borders[0]) 
+            if (Player.Location.X + 1 > borders[0])
+            {
+                if (Player.isRight)
+                {
+                    Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
+                    Player.isRight = false;
+                }
                 Player.Location.X -= 0.1f;
+            }
         }
     }
 }
