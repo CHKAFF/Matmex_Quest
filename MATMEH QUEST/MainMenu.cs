@@ -15,9 +15,11 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMenu;
+        private bool isRoom;
         public Form1()
         {
             isMenu = true;
+            isRoom = false;
         }
 
         protected Button MakeNewButton(string text, Size size, Point location, Font font, FlatStyle flatStyle,
@@ -41,36 +43,43 @@ namespace MATMEH_QUEST
         {
             var graphics = e.Graphics;
             if (isMenu)
-            {
                 PaintMenu(graphics);
-            }
+            else if (isRoom)
+                PaintRoom(graphics);
             else
-            {
-                Controls.Clear();
-                BackColor = Color.Empty;
+                PaintWorld(graphics);
+        }
 
-                var pictureBox = new PictureBox();
-                var background = new Bitmap(Resources.Bottom_part, 120, 100);
-                graphics.DrawImage(background, new Point(0, 0));
-            }
+        private void PaintRoom(Graphics graphics)
+        {
+        }
+
+        private void PaintWorld(Graphics graphics)
+        {
+            Controls.Clear();
+            BackColor = Color.Empty;
+
+            var pictureBox = new PictureBox();
+            var background = new Bitmap(Resources.Bottom_part, base.Width, base.Height);
+            graphics.DrawImage(background, new Point(0, 0));
         }
 
         private void PaintMenu(Graphics graphics)
         {
             var backgroundColor = Color.FromArgb(145, 215, 254);
             BackColor = backgroundColor;
-
-            var logotype = new Bitmap(Resources.фон, 120, 100);
+            var logoSize = base.Width / 4;
+            var logotype = new Bitmap(Resources.фон, base.Width , base.Width );
             graphics.DrawImage(logotype, new Point(90, 0));
 
-            PrivateFontCollection fontCollection = new PrivateFontCollection();
-            fontCollection.AddFontFile("19190.TTF");
-            FontFamily family = fontCollection.Families[0];
+            //PrivateFontCollection fontCollection = new PrivateFontCollection();
+            //fontCollection.AddFontFile("Arial");
+            //FontFamily family = fontCollection.Families[0];
 
             var newGame = MakeNewButton("НОВАЯ ИГРА",
                 new Size(100, 50),
                 new Point(100, 100),
-                new Font(family, 20),
+                new Font("Arial", 20),
                 FlatStyle.Flat,
                 Color.FromArgb(1, 127, 189),
                 0,
@@ -80,7 +89,7 @@ namespace MATMEH_QUEST
             var exit = MakeNewButton("ВЫХОД",
                 new Size(100, 50),
                 new Point(100, 150),
-                new Font(family, 20),
+                new Font("Arial", 20),
                 FlatStyle.Flat,
                 Color.FromArgb(1, 127, 189),
                 0,
