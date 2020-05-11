@@ -52,7 +52,6 @@ namespace MATMEH_QUEST
                 fontCollection.AddFontFile("19190.TTF");
                 FontFamily family = fontCollection.Families[0];
 
-
                 var newGame = MakeNewButton("НОВАЯ ИГРА",
                     new Size(100, 50),
                     new Point(100, 100),
@@ -80,8 +79,11 @@ namespace MATMEH_QUEST
             {
                 Controls.Clear();
                 BackColor = Color.Empty;
+
+                var pictureBox = new PictureBox();
                 var background = new Bitmap(Resources.Bottom_part, 120, 100);
                 graphics.DrawImage(background, new Point(0, 0));
+                
             }
         }
 
