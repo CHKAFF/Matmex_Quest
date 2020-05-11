@@ -22,15 +22,15 @@ namespace TESTS
             Assert.AreEqual(startPosition+20, game.Player.Location.X);
             var locationInWorld = game.Player.Location;
             game.EnterInRoom();
-            Assert.AreNotEqual(game.room, null);
+            Assert.AreNotEqual(game.Room, null);
             for (var i = 0; i < 10; i++)
             {
                 game.PlayerMoveRight();
             }
             game.TalkWithHuman();
-            Assert.AreEqual(game.World.Doors[game.room.Humans[0].MissionID].State, Door.DoorState.Open);
+            Assert.AreEqual(game.World.Doors[game.Room.Humans[0].MissionID].State, Door.DoorState.Open);
             game.LeaveFromRoom();
-            Assert.AreEqual(game.room, null);
+            Assert.AreEqual(game.Room, null);
             Assert.AreEqual(locationInWorld, game.Player.Location);
             startPosition = game.Player.Location.X;
             for (var i = 0; i < 20; i++)
@@ -39,8 +39,8 @@ namespace TESTS
             }
             Assert.AreEqual(startPosition-20, game.Player.Location.X);
             game.EnterInRoom();
-            game.Inventory.PutItem(game.room.GetItem(new Point(15, 15)));
-            Assert.AreEqual(0, game.room.LevelItems.Count);
+            game.Inventory.PutItem(game.Room.GetItem(new Point(15, 15)));
+            Assert.AreEqual(0, game.Room.LevelItems.Count);
             Assert.AreEqual(1,game.Inventory.items.Count);
             game.LeaveFromRoom();
             for (var i = 0; i < 20; i++)
@@ -53,8 +53,8 @@ namespace TESTS
                 game.PlayerMoveRight();
             }
             game.GiveItem(game.Inventory.items.Keys.ToList().FirstOrDefault());
-            Assert.AreEqual(0, game.room.Humans[0].expectedItems.Count);
-            Assert.AreEqual(Human.HumanState.NotReady,game.room.Humans[0].State);
+            Assert.AreEqual(0, game.Room.Humans[0].expectedItems.Count);
+            Assert.AreEqual(Human.HumanState.NotReady,game.Room.Humans[0].State);
             Assert.AreEqual(0, game.Inventory.items.Count);
         }
     }

@@ -4,13 +4,13 @@ namespace MATMEH_QUEST.Domain
 {
     public class Player 
     {
-        public Point Location;
+        public PointF Location;
         public int Height = 100;
         public int Width = 200;
         
-        public Player(Point location)
+        public Player(PointF location)
         {
-            this.Location = location;
+            Location = location;
         }
     }
 }

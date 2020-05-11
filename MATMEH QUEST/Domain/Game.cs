@@ -12,19 +12,15 @@ namespace MATMEH_QUEST.Domain
         public World World;
         public Player Player;
         public Inventory Inventory;
-        public Room room;
-        private Point pointInWorld;
-        public Game()
-        {
-            
-        }
+        public Room Room;
+        private PointF pointInWorld;
 
         public void New()
         {
             this.World = new World();
             Player = new Player(new Point(10,10));
             Inventory = new Inventory();
-            room = null;
+            Room = null;
         }
 
         public void EnterInRoom()
@@ -34,7 +30,7 @@ namespace MATMEH_QUEST.Domain
                 if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 10)
                     if (door.Value.IsOpen())
                     {
-                        room = door.Value.Room;
+                        Room = door.Value.Room;
                         pointInWorld = Player.Location;
                         Player.Location = new Point(0,10);
                         break;
@@ -44,16 +40,16 @@ namespace MATMEH_QUEST.Domain
 
         public void LeaveFromRoom()
         {
-            if (room != null)
+            if (Room != null)
             {
-                room = null;
+                Room = null;
                 Player.Location = pointInWorld;
             }
         }
         
         public void TalkWithHuman()
         {
-            var humans = room != null ? room.Humans : World.Humans;
+            var humans = Room != null ? Room.Humans : World.Humans;
             foreach (var human in humans)
             {
                 if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
@@ -67,7 +63,7 @@ namespace MATMEH_QUEST.Domain
 
         public void GiveItem(Item item)
         {
-            foreach (var human in room.Humans)
+            foreach (var human in Room.Humans)
             {
                 if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
                     if (human.State == Human.HumanState.Awaiting)
@@ -85,14 +81,14 @@ namespace MATMEH_QUEST.Domain
 
         public void PlayerMoveRight()
         {
-            var borders = room == null ? World.availableX : room.availableX;
+            var borders = Room == null ? World.availableX : Room.availableX;
             if (Player.Location.X + 1 < borders[1]) 
                 Player.Location.X += 1;
         }
         
         public void PlayerMoveLeft()
         {
-            var borders = room == null ? World.availableX : room.availableX;
+            var borders = Room == null ? World.availableX : Room.availableX;
             if (Player.Location.X + 1 > borders[0]) 
                 Player.Location.X -= 1;
         }

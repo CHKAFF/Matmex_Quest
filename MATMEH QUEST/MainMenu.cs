@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MATMEH_QUEST.Domain;
 using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST
@@ -15,11 +17,15 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMenu;
-        private bool isRoom;
+        private Player player;
+        private Controller controller;
         public Form1()
         {
             isMenu = true;
-            isRoom = false;
+            MinimumSize = new Size(1200, 800);
+            player = new Player(new PointF(0, 450));
+            controller = new Controller();
+            DoubleBuffered = true;
         }
 
         protected Button MakeNewButton(string text, Size size, Point location, Font font, FlatStyle flatStyle,
@@ -41,11 +47,18 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            int time = 0;
+            var timer = new Timer();
+            timer.Interval = 500;
+            timer.Tick += (sender, args) =>
+            {
+                time++;
+                Invalidate();
+            };
+            timer.Start();
             var graphics = e.Graphics;
             if (isMenu)
-                PaintMenu(graphics);
-            else if (isRoom)
-                PaintRoom(graphics);
+                PaintMenu();
             else
                 PaintWorld(graphics);
         }
@@ -56,59 +69,94 @@ namespace MATMEH_QUEST
 
         private void PaintWorld(Graphics graphics)
         {
-            Controls.Clear();
-            BackColor = Color.Empty;
+            BackgroundImage = new Bitmap(Resources.BackgroundCorridor);
+            BackgroundImageLayout = ImageLayout.Stretch;
 
-            var pictureBox = new PictureBox();
-            var background = new Bitmap(Resources.Bottom_part, base.Width, base.Height);
-            graphics.DrawImage(background, new Point(0, 0));
+
+            var playerImage = new Bitmap(Resources.Player);
+            graphics.DrawImage(playerImage, new PointF(player.Location.X, player.Location.Y));
+
+            KeyDown += (sender, args) =>
+            {
+                if (args.KeyCode == Keys.D)
+                {
+                    player.Location.X += 0.1f;
+                }
+                if (args.KeyCode == Keys.A)
+                {
+                    player.Location.X -= 0.1f;
+                }
+            };
         }
 
-        private void PaintMenu(Graphics graphics)
+        private void PaintMenu()
         {
             var backgroundColor = Color.FromArgb(145, 215, 254);
             BackColor = backgroundColor;
-            var logoSize = base.Width / 4;
-            var logotype = new Bitmap(Resources.фон, base.Width , base.Width );
-            graphics.DrawImage(logotype, new Point(90, 0));
 
             //PrivateFontCollection fontCollection = new PrivateFontCollection();
             //fontCollection.AddFontFile("Arial");
             //FontFamily family = fontCollection.Families[0];
 
+            var table = new TableLayoutPanel();
+            table.RowStyles.Clear();
+            table.ColumnStyles.Clear();
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+
+            var pictureBox = new PictureBox();
+            pictureBox.Image = new Bitmap(Resources.фон);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Dock = DockStyle.Fill;
+            
+
             var newGame = MakeNewButton("НОВАЯ ИГРА",
-                new Size(100, 50),
+                new Size(50, 25),
                 new Point(100, 100),
                 new Font("Arial", 20),
                 FlatStyle.Flat,
                 Color.FromArgb(1, 127, 189),
                 0,
                 backgroundColor);
-            Controls.Add(newGame);
+            newGame.Dock = DockStyle.Fill;
+            
 
             var exit = MakeNewButton("ВЫХОД",
                 new Size(100, 50),
-                new Point(100, 150),
+                new Point(50, 25),
                 new Font("Arial", 20),
                 FlatStyle.Flat,
                 Color.FromArgb(1, 127, 189),
                 0,
                 backgroundColor);
-            Controls.Add(exit);
+            exit.Dock = DockStyle.Fill;
 
+            table.Controls.Add(pictureBox, 0, 0);
+            table.Controls.Add(newGame,0,1);
+            table.Controls.Add(exit,0,2);
+         
+            table.Dock = DockStyle.Fill;
+
+            Controls.Add(table);
+            
             newGame.Click += NewGameOnClick;
             exit.Click += ExitOnClick;
+            
         }
 
         private void ExitOnClick(object sender, EventArgs e)
         {
-            base.Close();
+            Close();
         }
 
         private void NewGameOnClick(object sender, EventArgs e)
         {
             isMenu = false;
-            base.Refresh();
+            Controls.Clear();
+            BackColor = Color.Empty;
+            Invalidate();
         }
     }
 }
