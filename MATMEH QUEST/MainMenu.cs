@@ -17,13 +17,11 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMenu;
-        private Player player;
         private Controller controller;
         public Form1()
         {
             isMenu = true;
             MinimumSize = new Size(1200, 800);
-            player = new Player(new PointF(0, 450));
             controller = new Controller();
             DoubleBuffered = true;
         }
@@ -47,6 +45,11 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            
+            KeyDown += (sender, args) =>
+            {
+                controller.Action(args);
+            };
             int time = 0;
             var timer = new Timer();
             timer.Interval = 500;
@@ -74,19 +77,7 @@ namespace MATMEH_QUEST
 
 
             var playerImage = new Bitmap(Resources.Player);
-            graphics.DrawImage(playerImage, new PointF(player.Location.X, player.Location.Y));
-
-            KeyDown += (sender, args) =>
-            {
-                if (args.KeyCode == Keys.D)
-                {
-                    player.Location.X += 0.1f;
-                }
-                if (args.KeyCode == Keys.A)
-                {
-                    player.Location.X -= 0.1f;
-                }
-            };
+            graphics.DrawImage(playerImage, new PointF(controller.Game.Player.Location.X, controller.Game.Player.Location.Y));
         }
 
         private void PaintMenu()

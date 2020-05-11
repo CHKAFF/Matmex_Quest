@@ -48,7 +48,8 @@
       </e>
       <e p="Resources" t="Include">
         <e p="19190.ttf" t="Include" />
-        <e p="Bottom part.png" t="Include" />
+        <e p="BackgroundCorridor.png" t="Include" />
+        <e p="Player.png" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">

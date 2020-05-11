@@ -7,21 +7,22 @@ namespace MATMEH_QUEST
 {
     public class Controller
     {
-        private Game game;
+        public Game Game;
         public Controller()
         {
-            game = new Game();
+            Game = new Game();
+            Game.New();
         }
         public void Action(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
             {
-                game.PlayerMoveLeft();
+                Game.PlayerMoveLeft();
             }
 
             if (e.KeyCode == Keys.D)
             {
-                game.PlayerMoveLeft();
+                Game.PlayerMoveRight();
             }
         }
     }
