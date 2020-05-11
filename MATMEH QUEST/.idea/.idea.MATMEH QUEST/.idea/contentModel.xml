@@ -5,7 +5,11 @@
     <e p="C:\Users\DNS\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_MATMEH QUEST.1538545606.00" t="ExcludeRecursive" />
     <e p="C:\Users\DNS\Desktop\gitProject\Matmex_Quest\MATMEH QUEST" t="IncludeRecursive">
       <e p="App.config" t="Include" />
-      <e p="bin" t="ExcludeRecursive" />
+      <e p="bin" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="19190.ttf" t="Include" />
+        </e>
+      </e>
       <e p="Controller.cs" t="Include" />
       <e p="Domain" t="Include">
         <e p="Door.cs" t="Include" />
@@ -17,9 +21,9 @@
         <e p="Room.cs" t="Include" />
         <e p="World.cs" t="Include" />
       </e>
-      <e p="Form1.cs" t="Include" />
-      <e p="Form1.Designer.cs" t="Include" />
-      <e p="Form1.resx" t="Include" />
+      <e p="MainMenu.cs" t="Include" />
+      <e p="MainMenu.Designer.cs" t="Include" />
+      <e p="MainMenu.resx" t="Include" />
       <e p="MATMEH QUEST.csproj" t="IncludeRecursive" />
       <e p="MATMEH QUEST.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
@@ -42,7 +46,13 @@
         <e p="Settings.Designer.cs" t="Include" />
         <e p="Settings.settings" t="Include" />
       </e>
+      <e p="Resources" t="Include">
+        <e p="19190.ttf" t="Include" />
+        <e p="Bottom part.png" t="Include" />
+        <e p="фон.png" t="Include" />
+      </e>
       <e p="TESTS" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
