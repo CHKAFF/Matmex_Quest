@@ -20,6 +20,11 @@ namespace MATMEH_QUEST
         private Controller controller;
         public Form1()
         {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
             Timer timer = new Timer();
             timer.Interval = 1000 / 60;
             timer.Tick += new EventHandler(TimerTick);
@@ -51,9 +56,9 @@ namespace MATMEH_QUEST
             button.FlatAppearance.BorderColor = borderColor;
             return button;
         }
-
         protected override void OnPaint(PaintEventArgs e)
         {
+            Invalidate();
             KeyDown += (sender, args) =>
             {
                 controller.Action(args);
@@ -63,8 +68,10 @@ namespace MATMEH_QUEST
                 PaintMenu();
             else
             {
-                if (controller.Game.Room == null) PaintWorld(graphics); 
-                else PaintRoom(graphics);
+                if (controller.Game.Room == null) 
+                    PaintWorld(graphics); 
+                else 
+                    PaintRoom(graphics);
                 
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
