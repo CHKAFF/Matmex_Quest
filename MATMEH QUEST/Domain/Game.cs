@@ -34,7 +34,7 @@ namespace MATMEH_QUEST.Domain
                         Room = door.Value.Room;
                         pointInWorld = Player.Location;
                         Player.Location.X = 50;
-                        Player.Location.Y = 300;
+                        Player.Location.Y = 350;
                         break;
                     }
             }
@@ -94,7 +94,7 @@ namespace MATMEH_QUEST.Domain
                 Player.Location.X += 1f;
                 Player.isRight = true;
             }
-            else
+            else if (Room == null)
             {
                 if (World.Location.X > -6100)
                 {
@@ -119,7 +119,7 @@ namespace MATMEH_QUEST.Domain
                 }
                 Player.Location.X -= 1f;
             }
-            else
+            else if (Room == null)
             {
                 if (World.Location.X < 0)
                 {

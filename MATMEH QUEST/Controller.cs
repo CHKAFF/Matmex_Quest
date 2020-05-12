@@ -30,6 +30,9 @@ namespace MATMEH_QUEST
                 case Keys.E:
                     Game.EnterInRoom();
                     break;
+                case Keys.Escape:
+                    if (Game.Room != null) Game.LeaveFromRoom();
+                    break;
             }
         }
     }
