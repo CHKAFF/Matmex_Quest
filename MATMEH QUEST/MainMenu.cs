@@ -70,7 +70,7 @@ namespace MATMEH_QUEST
 
         private void PaintWorld(Graphics graphics)
         {
-            BackgroundImage = new Bitmap(Resources.BackgroundCorridor);
+            BackgroundImage = new Bitmap(Resources.CORRIDOR);
             graphics.DrawImage(BackgroundImage, controller.Game.World.Location);
          
             PaintPlayer(graphics);

@@ -73,9 +73,9 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap BackgroundCorridor {
+        public static System.Drawing.Bitmap CORRIDOR {
             get {
-                object obj = ResourceManager.GetObject("BackgroundCorridor", resourceCulture);
+                object obj = ResourceManager.GetObject("CORRIDOR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

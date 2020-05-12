@@ -95,7 +95,7 @@ namespace MATMEH_QUEST.Domain
             }
             else
             {
-                if (World.Location.X > -5000) World.Location.X -= 1f;
+                if (World.Location.X > -6100) World.Location.X -= 1f;
             }
         }
         

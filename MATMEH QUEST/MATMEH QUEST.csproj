@@ -135,9 +135,6 @@
     <None Include="Resources\Player.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BackgroundCorridor.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Door.png" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Задание1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Corridor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
