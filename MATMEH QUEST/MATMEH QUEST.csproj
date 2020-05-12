@@ -79,6 +79,11 @@
     <Compile Include="Domain\Player.cs" />
     <Compile Include="Domain\Room.cs" />
     <Compile Include="Domain\World.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,11 +106,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -147,9 +147,6 @@
     <None Include="Resources\Room name.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Задание1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Corridor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +154,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Деканат.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Декан_Разговор_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Декан_Разговор_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Декан_Разговор_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Обучение 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Обучение 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
