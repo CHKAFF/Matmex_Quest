@@ -49,7 +49,12 @@
       <e p="Resources" t="Include">
         <e p="19190.ttf" t="Include" />
         <e p="BackgroundCorridor.png" t="Include" />
+        <e p="Door.png" t="Include" />
+        <e p="Health bar.png" t="Include" />
+        <e p="Inventory.png" t="Include" />
         <e p="Player.png" t="Include" />
+        <e p="Room name.png" t="Include" />
+        <e p="Задание1.png" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">

@@ -47,21 +47,17 @@ namespace MATMEH_QUEST
         {
             
             controller.Game.World.AvailableX[1] = base.Size.Width - 200;
-            KeyDown += (sender, args) =>
-            {
-                controller.Action(args);
-            };
+            KeyDown += (sender, args) => { controller.Action(args); };
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
             else
             {
-                PaintWorld(graphics);
+                if (controller.Game.Room == null) PaintWorld(graphics); 
+                else PaintRoom(graphics);
+                
                 var inventory = new Bitmap(Resources.Inventory);
-                var pictureBox = new PictureBox();
-                pictureBox.Image = inventory;
-                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                Controls.Add(pictureBox);
+                graphics.DrawImage(inventory, new Point(base.Size.Width / 2, base.Size.Height - 200));
             }
         }
 
