@@ -48,7 +48,7 @@
       </e>
       <e p="Resources" t="Include">
         <e p="19190.ttf" t="Include" />
-        <e p="BackgroundCorridor.png" t="Include" />
+        <e p="Corridor.png" t="Include" />
         <e p="Door.png" t="Include" />
         <e p="Health bar.png" t="Include" />
         <e p="Inventory.png" t="Include" />
