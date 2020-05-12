@@ -33,7 +33,8 @@ namespace MATMEH_QUEST.Domain
                     {
                         Room = door.Value.Room;
                         pointInWorld = Player.Location;
-                        Player.Location = new PointF(50,300);
+                        Player.Location.X = 50;
+                        Player.Location.Y = 300;
                         break;
                     }
             }
@@ -82,7 +83,7 @@ namespace MATMEH_QUEST.Domain
 
         public void PlayerMoveRight()
         {
-            var borders = Room == null ? World.AvailableX : Room.availableX;
+            var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 < borders[1])
             {
                 if (!Player.isRight)
@@ -108,7 +109,7 @@ namespace MATMEH_QUEST.Domain
         
         public void PlayerMoveLeft()
         {
-            var borders = Room == null ? World.AvailableX : Room.availableX;
+            var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 > borders[0])
             {
                 if (Player.isRight)
