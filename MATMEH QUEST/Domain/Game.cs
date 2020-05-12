@@ -28,12 +28,12 @@ namespace MATMEH_QUEST.Domain
         {
             foreach (var door in World.Doors)
             {
-                if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 10)
+                if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 200)
                     if (door.Value.IsOpen())
                     {
                         Room = door.Value.Room;
                         pointInWorld = Player.Location;
-                        Player.Location = new Point(0,10);
+                        Player.Location = new PointF(50,300);
                         break;
                     }
             }
@@ -95,7 +95,14 @@ namespace MATMEH_QUEST.Domain
             }
             else
             {
-                if (World.Location.X > -6100) World.Location.X -= 1f;
+                if (World.Location.X > -6100)
+                {
+                    World.Location.X -= 1f;
+                    for (var i = 1; i < 11; i++)
+                    {
+                        World.Doors[i].Location.X -= 1;
+                    }
+                }
             }
         }
         
@@ -113,7 +120,14 @@ namespace MATMEH_QUEST.Domain
             }
             else
             {
-                if (World.Location.X < 0) World.Location.X += 1f;
+                if (World.Location.X < 0)
+                {
+                    World.Location.X += 1f;
+                    for (var i = 1; i < 11; i++)
+                    {
+                        World.Doors[i].Location.X += 1;
+                    }
+                }
             }
         }
     }

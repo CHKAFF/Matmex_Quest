@@ -74,7 +74,7 @@ namespace MATMEH_QUEST
 
         private void PaintRoom(Graphics graphics)
         {
-            BackgroundImage = new Bitmap(Resources.фон);
+            BackgroundImage = new Bitmap(Resources.CORRIDOR);
             BackgroundImageLayout = ImageLayout.Stretch;
             PaintPlayer(graphics);
         }
