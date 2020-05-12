@@ -22,7 +22,7 @@ namespace MATMEH_QUEST
         {
             isMenu = true;
             MinimumSize = new Size(1200, 800);
-            controller = new Controller();
+            controller = new Controller(base.Size.Width);
             DoubleBuffered = true;
         }
 
@@ -45,7 +45,6 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            
             KeyDown += (sender, args) =>
             {
                 controller.Action(args);
@@ -68,16 +67,16 @@ namespace MATMEH_QUEST
 
         private void PaintRoom(Graphics graphics)
         {
+            BackgroundImage = new Bitmap(Resources.фон);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            PaintPlayer(graphics);
         }
 
         private void PaintWorld(Graphics graphics)
         {
             BackgroundImage = new Bitmap(Resources.BackgroundCorridor);
             BackgroundImageLayout = ImageLayout.Stretch;
-
-
-            var playerImage = new Bitmap(controller.Game.Player.Sprite);
-            graphics.DrawImage(playerImage, new PointF(controller.Game.Player.Location.X, controller.Game.Player.Location.Y));
+            PaintPlayer(graphics);
         }
 
         private void PaintMenu()
@@ -135,6 +134,12 @@ namespace MATMEH_QUEST
             newGame.Click += NewGameOnClick;
             exit.Click += ExitOnClick;
             
+        }
+
+        private void PaintPlayer(Graphics graphics)
+        {
+            var playerImage = new Bitmap(controller.Game.Player.Sprite);
+            graphics.DrawImage(playerImage, new PointF(controller.Game.Player.Location.X, controller.Game.Player.Location.Y));
         }
 
         private void ExitOnClick(object sender, EventArgs e)

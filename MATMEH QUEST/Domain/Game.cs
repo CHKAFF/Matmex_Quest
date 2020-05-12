@@ -18,7 +18,7 @@ namespace MATMEH_QUEST.Domain
 
         public void New()
         {
-            this.World = new World();
+            this.World = new World(new int[2]{0,1100});
             Player = new Player(new PointF(0,450));
             Inventory = new Inventory();
             Room = null;
@@ -82,7 +82,7 @@ namespace MATMEH_QUEST.Domain
 
         public void PlayerMoveRight()
         {
-            var borders = Room == null ? World.availableX : Room.availableX;
+            var borders = Room == null ? World.AvailableX : Room.availableX;
             if (Player.Location.X + 1 < borders[1])
             {
                 if (!Player.isRight)
@@ -97,7 +97,7 @@ namespace MATMEH_QUEST.Domain
         
         public void PlayerMoveLeft()
         {
-            var borders = Room == null ? World.availableX : Room.availableX;
+            var borders = Room == null ? World.AvailableX : Room.availableX;
             if (Player.Location.X + 1 > borders[0])
             {
                 if (Player.isRight)

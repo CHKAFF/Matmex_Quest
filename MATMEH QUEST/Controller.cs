@@ -8,7 +8,7 @@ namespace MATMEH_QUEST
     public class Controller
     {
         public Game Game;
-        public Controller()
+        public Controller(int formWidth)
         {
             Game = new Game();
             Game.New();

@@ -10,9 +10,10 @@ namespace MATMEH_QUEST.Domain
         public List<Human> Humans { get; set; }
         public HashSet<Item> LevelItems { get; set; }
         public int[] availableY = {23, 45};
-        public int[] availableX = {0, 2389};
-        public World()
+        public int[] AvailableX;
+        public World(int[] availableX)
         {
+            AvailableX = availableX;
             Doors = new Dictionary<int, Door>();
             var expectedItem = new Item(0, 0, new Point(15, 15));
             var firstRoom = new Room(levelItems: new List<Item>(){expectedItem});
