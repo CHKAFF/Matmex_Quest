@@ -26,7 +26,7 @@ namespace MATMEH_QUEST
             timer.Start();
             isMenu = true;
             MinimumSize = new Size(1200, 800);
-            controller = new Controller(base.Size.Width);
+            controller = new Controller(Size.Width);
             DoubleBuffered = true;
         }
 
@@ -54,7 +54,7 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            controller.Game.World.AvailableX[1] = base.Size.Width - 200;
+            controller.Game.World.AvailableX[1] = Size.Width - 200;
             KeyDown += (sender, args) =>
             {
                 controller.Action(args);
@@ -68,13 +68,13 @@ namespace MATMEH_QUEST
                 else PaintRoom(graphics);
                 
                 var inventory = new Bitmap(Resources.Inventory);
-                graphics.DrawImage(inventory, new Point(base.Size.Width / 2 - inventory.Width / 2, base.Size.Height/2 + 290));
+                graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
             }
         }
 
         private void PaintRoom(Graphics graphics)
         {
-            BackgroundImage = new Bitmap(controller.Game.Room.Background);
+            BackgroundImage = controller.Game.Room.Background;
             BackgroundImageLayout = ImageLayout.Stretch;
             PaintPlayer(graphics);
         }

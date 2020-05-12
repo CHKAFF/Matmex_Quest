@@ -16,19 +16,19 @@ namespace MATMEH_QUEST
 
         public void Action(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            switch (e.KeyCode)
             {
-                Game.PlayerMoveLeft();
-            }
-
-            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-            {
-                Game.PlayerMoveRight();
-            }
-
-            if (e.KeyCode == Keys.E)
-            {
-                Game.EnterInRoom();
+                case Keys.A:
+                case Keys.Left:
+                    Game.PlayerMoveLeft();
+                    break;
+                case Keys.D:
+                case Keys.Right:
+                    Game.PlayerMoveRight();
+                    break;
+                case Keys.E:
+                    Game.EnterInRoom();
+                    break;
             }
         }
     }
