@@ -17,6 +17,7 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMenu;
+        private bool isTutorial;
         private Controller controller;
         public Form1()
         {
@@ -30,6 +31,7 @@ namespace MATMEH_QUEST
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
             isMenu = true;
+            isTutorial = true;
             MinimumSize = new Size(1200, 800);
             controller = new Controller(Size.Width);
             DoubleBuffered = true;
@@ -66,8 +68,28 @@ namespace MATMEH_QUEST
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
+            else if (isTutorial)
+            {
+                BackgroundImage = Resources.CORRIDOR;
+                BackgroundImageLayout = ImageLayout.Stretch;
+                var  tutorialForm = new Bitmap(Resources.Обучение_1);
+                graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height/6));
+                var nextButton = MakeNewButton(
+                    "Door",
+                    new Size(100, 100),
+                    new Point(6100, 200),
+                    new Font("Arial", 20),
+                    FlatStyle.Flat,
+                    Color.Black,
+                    20,
+                    Color.Blue);
+                nextButton.Dock = DockStyle.Fill;
+
+                nextButton.Click += NextOnClick;
+            }
             else
             {
+                
                 if (controller.Game.Room == null) 
                     PaintWorld(graphics); 
                 else 
@@ -92,15 +114,6 @@ namespace MATMEH_QUEST
             BackgroundImage = new Bitmap(Resources.CORRIDOR);
             graphics.DrawImage(BackgroundImage, controller.Game.World.Location);
 
-            var doorOne = MakeNewButton(
-                "Door",
-                new Size(100, 100),
-                new Point(6100, 200),
-                new Font("Arial", 20),
-                FlatStyle.Flat,
-                Color.Black,
-                20,
-                Color.Blue);
 
             
             PaintPlayer(graphics);
@@ -177,6 +190,14 @@ namespace MATMEH_QUEST
         private void NewGameOnClick(object sender, EventArgs e)
         {
             isMenu = false;
+            Controls.Clear();
+            BackColor = Color.Empty;
+            Invalidate();
+        }
+
+        private void NextOnClick(object sender, EventArgs e)
+        {
+            isTutorial = false;
             Controls.Clear();
             BackColor = Color.Empty;
             Invalidate();
