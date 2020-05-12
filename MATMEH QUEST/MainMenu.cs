@@ -45,6 +45,8 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            
+            controller.Game.World.AvailableX[1] = base.Size.Width - 100;
             KeyDown += (sender, args) =>
             {
                 controller.Action(args);
@@ -138,7 +140,7 @@ namespace MATMEH_QUEST
 
         private void PaintPlayer(Graphics graphics)
         {
-            var playerImage = new Bitmap(controller.Game.Player.Sprite);
+            var playerImage = new Bitmap(controller.Game.Player.Sprite, new Size(100,300));
             graphics.DrawImage(playerImage, new PointF(controller.Game.Player.Location.X, controller.Game.Player.Location.Y));
         }
 
