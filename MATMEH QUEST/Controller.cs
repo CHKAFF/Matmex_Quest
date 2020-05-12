@@ -13,6 +13,7 @@ namespace MATMEH_QUEST
             Game = new Game();
             Game.New();
         }
+
         public void Action(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
@@ -23,6 +24,11 @@ namespace MATMEH_QUEST
             if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
                 Game.PlayerMoveRight();
+            }
+
+            if (e.KeyCode == Keys.E)
+            {
+                Game.EnterInRoom();
             }
         }
     }

@@ -20,10 +20,19 @@ namespace MATMEH_QUEST
         private Controller controller;
         public Form1()
         {
+            Timer timer = new Timer();
+            timer.Interval = 1000 / 60;
+            timer.Tick += new EventHandler(TimerTick);
+            timer.Start();
             isMenu = true;
             MinimumSize = new Size(1200, 800);
             controller = new Controller(base.Size.Width);
             DoubleBuffered = true;
+        }
+
+        private void TimerTick(object sender, EventArgs args)
+        {
+            
         }
 
         protected Button MakeNewButton(string text, Size size, Point location, Font font, FlatStyle flatStyle,
@@ -45,9 +54,11 @@ namespace MATMEH_QUEST
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            
             controller.Game.World.AvailableX[1] = base.Size.Width - 200;
-            KeyDown += (sender, args) => { controller.Action(args); };
+            KeyDown += (sender, args) =>
+            {
+                controller.Action(args);
+            };
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
@@ -57,7 +68,7 @@ namespace MATMEH_QUEST
                 else PaintRoom(graphics);
                 
                 var inventory = new Bitmap(Resources.Inventory);
-                graphics.DrawImage(inventory, new Point(base.Size.Width / 2, base.Size.Height - 200));
+                graphics.DrawImage(inventory, new Point(base.Size.Width / 2 - inventory.Width / 2, base.Size.Height/2 + 290));
             }
         }
 
@@ -72,7 +83,18 @@ namespace MATMEH_QUEST
         {
             BackgroundImage = new Bitmap(Resources.CORRIDOR);
             graphics.DrawImage(BackgroundImage, controller.Game.World.Location);
-         
+
+            var doorOne = MakeNewButton(
+                "Door",
+                new Size(100, 100),
+                new Point(6100, 200),
+                new Font("Arial", 20),
+                FlatStyle.Flat,
+                Color.Black,
+                20,
+                Color.Blue);
+
+            
             PaintPlayer(graphics);
         }
 
