@@ -15,12 +15,12 @@ namespace MATMEH_QUEST
         }
         public void Action(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
                 Game.PlayerMoveLeft();
             }
 
-            if (e.KeyCode == Keys.D)
+            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
                 Game.PlayerMoveRight();
             }

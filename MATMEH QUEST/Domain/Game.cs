@@ -18,7 +18,7 @@ namespace MATMEH_QUEST.Domain
 
         public void New()
         {
-            this.World = new World(new int[2]{0,1100});
+            this.World = new World();
             Player = new Player(new PointF(0,300));
             Inventory = new Inventory();
             Room = null;
@@ -93,6 +93,10 @@ namespace MATMEH_QUEST.Domain
                 Player.Location.X += 0.1f;
                 Player.isRight = true;
             }
+            else
+            {
+                if (World.Location.X > -500) World.Location.X -= 0.1f;
+            }
         }
         
         public void PlayerMoveLeft()
@@ -106,6 +110,10 @@ namespace MATMEH_QUEST.Domain
                     Player.isRight = false;
                 }
                 Player.Location.X -= 0.1f;
+            }
+            else
+            {
+                if (World.Location.X < 0) World.Location.X += 0.1f;
             }
         }
     }
