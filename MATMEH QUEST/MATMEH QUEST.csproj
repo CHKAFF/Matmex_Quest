@@ -132,10 +132,25 @@
     <None Include="Resources\фон.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Player.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\BackgroundCorridor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Player.png" />
+    <None Include="Resources\Door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Health bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Room name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Задание1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

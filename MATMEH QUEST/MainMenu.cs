@@ -51,20 +51,18 @@ namespace MATMEH_QUEST
             {
                 controller.Action(args);
             };
-            int time = 0;
-            var timer = new Timer();
-            timer.Interval = 500;
-            timer.Tick += (sender, args) =>
-            {
-                time++;
-                Invalidate();
-            };
-            timer.Start();
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
             else
+            {
                 PaintWorld(graphics);
+                var inventory = new Bitmap(Resources.Inventory);
+                var pictureBox = new PictureBox();
+                pictureBox.Image = inventory;
+                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                Controls.Add(pictureBox);
+            }
         }
 
         private void PaintRoom(Graphics graphics)
@@ -78,6 +76,7 @@ namespace MATMEH_QUEST
         {
             BackgroundImage = new Bitmap(Resources.BackgroundCorridor);
             graphics.DrawImage(BackgroundImage, controller.Game.World.Location);
+         
             PaintPlayer(graphics);
         }
 
