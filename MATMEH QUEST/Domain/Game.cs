@@ -96,7 +96,7 @@ namespace MATMEH_QUEST.Domain
             }
             else if (Room == null)
             {
-                if (World.Location.X > -6100)
+                if (World.Location.X > -6000)
                 {
                     World.Location.X -= 1f;
                     for (var i = 1; i < 11; i++)

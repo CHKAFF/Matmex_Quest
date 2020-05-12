@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,8 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMenu;
-        private bool isTutorial;
+        private bool isTutorial1;
+        private bool isTutorial2;
         private Controller controller;
         public Form1()
         {
@@ -31,7 +33,8 @@ namespace MATMEH_QUEST
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
             isMenu = true;
-            isTutorial = true;
+            isTutorial1 = true;
+            isTutorial2 = true;
             MinimumSize = new Size(1200, 800);
             controller = new Controller(Size.Width);
             DoubleBuffered = true;
@@ -68,24 +71,13 @@ namespace MATMEH_QUEST
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
-            else if (isTutorial)
+            else if (isTutorial1)
             {
-                BackgroundImage = Resources.CORRIDOR;
-                BackgroundImageLayout = ImageLayout.Stretch;
-                var  tutorialForm = new Bitmap(Resources.Обучение_1);
-                graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height/6));
-                var nextButton = MakeNewButton(
-                    "Door",
-                    new Size(100, 100),
-                    new Point(6100, 200),
-                    new Font("Arial", 20),
-                    FlatStyle.Flat,
-                    Color.Black,
-                    20,
-                    Color.Blue);
-                nextButton.Dock = DockStyle.Fill;
-
-                nextButton.Click += NextOnClick;
+                PaintFirstTrain(graphics);
+            }
+            else if (isTutorial2)
+            {
+                PaintSecondTrain(graphics);
             }
             else
             {
@@ -99,6 +91,45 @@ namespace MATMEH_QUEST
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
             }
         }
+
+        private void PaintFirstTrain(Graphics graphics)
+        {
+            Invalidate();
+            BackgroundImage = Resources.CORRIDOR;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
+            var tutorialForm = new Bitmap(Resources.Обучение_1);
+            graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
+
+            var nextButton = new PictureBox();
+            nextButton.ForeColor = Color.Transparent;
+            nextButton.BackColor = Color.Transparent;
+            nextButton.Location = new Point(790, 500);
+            nextButton.Size = new Size(160, 40);
+            Controls.Add(nextButton);
+            nextButton.Update();
+            nextButton.Click += NextOnClick;
+        }
+
+        private void PaintSecondTrain(Graphics graphics)
+        {
+            Invalidate();
+            BackgroundImage = Resources.CORRIDOR;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
+            var tutorialForm = new Bitmap(Resources.Обучение_2);
+            graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
+
+            var overButton = new PictureBox();
+            overButton.ForeColor = Color.Transparent;
+            overButton.BackColor = Color.Transparent;
+            overButton.Location = new Point(790, 500);
+            overButton.Size = new Size(160, 40);
+            Controls.Add(overButton);
+            overButton.Update();
+            overButton.Click += OverButtonOnClick;
+        }
+
 
         private void PaintRoom(Graphics graphics)
         {
@@ -173,6 +204,7 @@ namespace MATMEH_QUEST
             
             newGame.Click += NewGameOnClick;
             exit.Click += ExitOnClick;
+            Invalidate();
             
         }
 
@@ -197,9 +229,17 @@ namespace MATMEH_QUEST
 
         private void NextOnClick(object sender, EventArgs e)
         {
-            isTutorial = false;
             Controls.Clear();
             BackColor = Color.Empty;
+            isTutorial1 = false;
+            Invalidate();
+        }
+
+        private void OverButtonOnClick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            BackColor = Color.Empty;
+            isTutorial2 = false;
             Invalidate();
         }
     }
