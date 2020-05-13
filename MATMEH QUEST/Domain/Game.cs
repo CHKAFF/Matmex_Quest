@@ -36,7 +36,7 @@ namespace MATMEH_QUEST.Domain
                         pointInWorld = Player.Location;
                         Player.Location.X = 50;
                         Player.Location.Y = 350;
-                        MissionSprite = new Bitmap();
+                        MissionSprite = new Bitmap(Resources.задание_2);
                         break;
                     }
             }
