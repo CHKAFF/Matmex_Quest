@@ -15,6 +15,7 @@ namespace MATMEH_QUEST.Domain
         public Inventory Inventory;
         public Room Room;
         private PointF pointInWorld;
+        public Bitmap MissionSprite;
 
         public void New()
         {
@@ -35,6 +36,7 @@ namespace MATMEH_QUEST.Domain
                         pointInWorld = Player.Location;
                         Player.Location.X = 50;
                         Player.Location.Y = 350;
+                        MissionSprite = null;
                         break;
                     }
             }

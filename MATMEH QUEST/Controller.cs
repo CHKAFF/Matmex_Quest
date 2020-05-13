@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 using MATMEH_QUEST.Domain;
+using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST
 {
@@ -34,6 +36,11 @@ namespace MATMEH_QUEST
                     if (Game.Room != null) Game.LeaveFromRoom();
                     break;
             }
+        }
+
+        public void NewMission()
+        {
+            Game.MissionSprite = new Bitmap(Resources.задание_1);
         }
     }
 }

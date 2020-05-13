@@ -89,14 +89,15 @@ namespace MATMEH_QUEST
                 
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
+                var missionTable = controller.Game.MissionSprite;
+                graphics.DrawImage(missionTable, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/20));
             }
         }
 
         private void PaintFirstTrain(Graphics graphics)
         {
             Invalidate();
-            BackgroundImage = Resources.CORRIDOR;
-            BackgroundImageLayout = ImageLayout.Stretch;
+            BackColor = Color.Aqua;
 
             var tutorialForm = new Bitmap(Resources.Обучение_1);
             graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
@@ -114,8 +115,7 @@ namespace MATMEH_QUEST
         private void PaintSecondTrain(Graphics graphics)
         {
             Invalidate();
-            BackgroundImage = Resources.CORRIDOR;
-            BackgroundImageLayout = ImageLayout.Stretch;
+            BackColor = Color.Aqua;
 
             var tutorialForm = new Bitmap(Resources.Обучение_2);
             graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
@@ -241,6 +241,7 @@ namespace MATMEH_QUEST
             BackColor = Color.Empty;
             isTutorial2 = false;
             Invalidate();
+            controller.NewMission();
         }
     }
 }
