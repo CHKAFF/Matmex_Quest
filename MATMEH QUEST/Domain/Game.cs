@@ -88,13 +88,13 @@ namespace MATMEH_QUEST.Domain
             var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 < borders[1])
             {
-                if (!Player.isRight)
+                if (!Player.IsRight)
                 {
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    Player.isRight = true;
+                    Player.IsRight = true;
                 }
                 Player.Location.X += 1f;
-                Player.isRight = true;
+                Player.IsRight = true;
             }
             else if (Room == null)
             {
@@ -114,10 +114,10 @@ namespace MATMEH_QUEST.Domain
             var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 > borders[0])
             {
-                if (Player.isRight)
+                if (Player.IsRight)
                 {
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    Player.isRight = false;
+                    Player.IsRight = false;
                 }
                 Player.Location.X -= 1f;
             }
