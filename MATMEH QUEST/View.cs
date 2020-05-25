@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
-using System.Linq;
-using System.Management.Instrumentation;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 using MATMEH_QUEST.Domain;
 using MATMEH_QUEST.Properties;
@@ -17,9 +9,11 @@ namespace MATMEH_QUEST
 {
     public partial class Form1 : Form
     {
+        private bool isMusicOn;
         private bool isMenu;
         private bool isTutorial1;
         private bool isTutorial2;
+        private SoundPlayer music;
         private Controller controller;
         public Form1()
         {
@@ -28,16 +22,22 @@ namespace MATMEH_QUEST
 
         private void InitializeComponent()
         {
-            Timer timer = new Timer();
-            timer.Interval = 1000 / 60;
+            Timer timer = new Timer {Interval = 1000 / 60};
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
+            isMusicOn = true;
             isMenu = true;
             isTutorial1 = true;
             isTutorial2 = true;
-            MinimumSize = new Size(1200, 800);
+            music = new SoundPlayer();
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
             controller = new Controller(Size.Width);
             DoubleBuffered = true;
+            KeyDown += (sender, args) =>
+            {
+                controller.Action(args);
+            };
         }
 
         private void TimerTick(object sender, EventArgs args)
@@ -45,29 +45,8 @@ namespace MATMEH_QUEST
             
         }
 
-        protected Button MakeNewButton(string text, Size size, Point location, Font font, FlatStyle flatStyle,
-            Color foreColor, int borderSize, Color borderColor)
-        {
-            var button = new Button()
-            {
-                Text = text,
-                Location = location,
-                Size = size,
-                Font = font,
-                FlatStyle = flatStyle
-            };
-            button.ForeColor = foreColor;
-            button.FlatAppearance.BorderSize = borderSize;
-            button.FlatAppearance.BorderColor = borderColor;
-            return button;
-        }
         protected override void OnPaint(PaintEventArgs e)
         {
-            Invalidate();
-            KeyDown += (sender, args) =>
-            {
-                controller.Action(args);
-            };
             var graphics = e.Graphics;
             if (isMenu)
                 PaintMenu();
@@ -102,11 +81,13 @@ namespace MATMEH_QUEST
             var tutorialForm = new Bitmap(Resources.Обучение_1);
             graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
 
-            var nextButton = new PictureBox();
-            nextButton.ForeColor = Color.Transparent;
-            nextButton.BackColor = Color.Transparent;
-            nextButton.Location = new Point(790, 500);
-            nextButton.Size = new Size(160, 40);
+            var nextButton = new PictureBox
+            {
+                ForeColor = Color.Transparent,
+                BackColor = Color.Transparent,
+                Location = new Point(790, 500),
+                Size = new Size(160, 40)
+            };
             Controls.Add(nextButton);
             nextButton.Update();
             nextButton.Click += NextOnClick;
@@ -120,11 +101,13 @@ namespace MATMEH_QUEST
             var tutorialForm = new Bitmap(Resources.Обучение_2);
             graphics.DrawImage(tutorialForm, new Point(Size.Width / 2 - tutorialForm.Width / 2, Size.Height / 6));
 
-            var overButton = new PictureBox();
-            overButton.ForeColor = Color.Transparent;
-            overButton.BackColor = Color.Transparent;
-            overButton.Location = new Point(790, 500);
-            overButton.Size = new Size(160, 40);
+            var overButton = new PictureBox
+            {
+                ForeColor = Color.Transparent,
+                BackColor = Color.Transparent,
+                Location = new Point(790, 500),
+                Size = new Size(160, 40)
+            };
             Controls.Add(overButton);
             overButton.Update();
             overButton.Click += OverButtonOnClick;
@@ -133,6 +116,7 @@ namespace MATMEH_QUEST
 
         private void PaintRoom(Graphics graphics)
         {
+            Invalidate();
             controller.Game.Room.AvailableX[1] = Size.Width - 200;
             BackgroundImage = controller.Game.Room.Background;
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -141,12 +125,12 @@ namespace MATMEH_QUEST
 
         private void PaintWorld(Graphics graphics)
         {
+            Invalidate();
             controller.Game.World.AvailableX[1] = Size.Width - 200;
-            BackgroundImage = new Bitmap(Resources.CORRIDOR);
+            BackgroundImage = new Bitmap(Resources.Corridor);
+            BackgroundImageLayout = ImageLayout.Stretch;
             graphics.DrawImage(BackgroundImage, controller.Game.World.Location);
 
-
-            
             PaintPlayer(graphics);
         }
 
@@ -165,47 +149,116 @@ namespace MATMEH_QUEST
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-
-            var pictureBox = new PictureBox();
-            pictureBox.Image = new Bitmap(Resources.фон);
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.Dock = DockStyle.Fill;
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20));
             
 
-            var newGame = MakeNewButton("НОВАЯ ИГРА",
-                new Size(50, 25),
-                new Point(100, 100),
-                new Font("Arial", 20),
-                FlatStyle.Flat,
-                Color.FromArgb(1, 127, 189),
-                0,
-                backgroundColor);
+            var logotype = new PictureBox
+            {
+                Image = new Bitmap(Resources.Логотип), 
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Dock = DockStyle.Fill
+            };
+
+
+            var musicText = new Button
+            {
+                Text = "МУЗЫКА",
+                Font = new Font("Arial", 20),
+                ForeColor = Color.FromArgb(1, 127, 189),
+                Location = new Point(Left, Top),
+                Size = new Size(150, 100),
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance =
+                {
+                    CheckedBackColor = Color.Transparent,
+                    MouseDownBackColor = Color.Transparent,
+                    MouseOverBackColor = Color.Transparent
+                },
+                BackColor = Color.Transparent,
+            };
+            musicText.FlatAppearance.BorderSize = 0;
+            musicText.FlatAppearance.BorderColor = backgroundColor;
+
+
+            var music = new Button
+            {
+                BackgroundImage = new Bitmap(Resources.Music_on),
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Location = new Point(Left, Top),
+                Size = new Size(150, 100),
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = 
+                {
+                    CheckedBackColor = Color.Transparent, 
+                    MouseDownBackColor = Color.Transparent, 
+                    MouseOverBackColor = Color.Transparent
+                },
+                BackColor = Color.Transparent,
+            };
+            music.FlatAppearance.BorderSize = 0;
+            music.FlatAppearance.BorderColor = backgroundColor;
+            music.Dock = DockStyle.Top;
+
+
+            var newGame = new Button
+            {
+                Text = Resources.Новая_игра,
+                Font = new Font("Arial", 20),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = Color.FromArgb(1, 127, 189)
+            };
+            newGame.FlatAppearance.BorderSize = 0;
+            newGame.FlatAppearance.BorderColor = backgroundColor;
             newGame.Dock = DockStyle.Fill;
-            
 
-            var exit = MakeNewButton("ВЫХОД",
-                new Size(100, 50),
-                new Point(50, 25),
-                new Font("Arial", 20),
-                FlatStyle.Flat,
-                Color.FromArgb(1, 127, 189),
-                0,
-                backgroundColor);
+
+            var exit = new Button
+            {
+                Text = Resources.Выход,
+                Font = new Font("Arial", 20),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = Color.FromArgb(1, 127, 189)
+            };
+            exit.FlatAppearance.BorderSize = 0;
+            exit.FlatAppearance.BorderColor = backgroundColor;
             exit.Dock = DockStyle.Fill;
 
-            table.Controls.Add(pictureBox, 0, 0);
-            table.Controls.Add(newGame,0,1);
-            table.Controls.Add(exit,0,2);
-         
-            table.Dock = DockStyle.Fill;
 
+            table.Controls.Add(music, 0, 0);
+            table.Controls.Add(musicText, 1, 0);
+            table.Controls.Add(logotype, 2, 0);
+            table.Controls.Add(newGame,2,1);
+            table.Controls.Add(exit,2,2);
+            table.Controls.Add(new UserControl(), 3, 0);
+
+            table.Dock = DockStyle.Fill;
             Controls.Add(table);
             
+            music.Click += MusicOnOnClick;
             newGame.Click += NewGameOnClick;
             exit.Click += ExitOnClick;
             Invalidate();
             
+        }
+
+        private void MusicOnOnClick(object sender, EventArgs e)
+        {
+            isMusicOn = !isMusicOn;
+            if (!isMusicOn)
+            {
+                ((Button) sender).BackgroundImage = Resources.Music_off;
+                music.Play();
+            }
+            else
+            {
+                ((Button) sender).BackgroundImage = Resources.Music_on;
+                
+            }
+
+            Invalidate();
         }
 
         private void PaintPlayer(Graphics graphics)

@@ -176,6 +176,18 @@
   <ItemGroup>
     <None Include="Resources\задание 1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Олег Кензов - По Кайфу.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Олег Кензов - По Кайфу.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
