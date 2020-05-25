@@ -88,22 +88,22 @@ namespace MATMEH_QUEST.Domain
             var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 < borders[1])
             {
-                if (!Player.isRight)
+                if (!Player.IsRight)
                 {
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    Player.isRight = true;
+                    Player.IsRight = true;
                 }
-                Player.Location.X += 15f;
-                Player.isRight = true;
+                Player.Location.X += 1f;
+                Player.IsRight = true;
             }
             else if (Room == null)
             {
-                if (World.Location.X > Resources.Corridor.Width)
+                if (World.Location.X > -6000)
                 {
-                    World.Location.X -= 15f;
+                    World.Location.X -= 1f;
                     for (var i = 1; i < 11; i++)
                     {
-                        World.Doors[i].Location.X -= 15;
+                        World.Doors[i].Location.X -= 1;
                     }
                 }
             }
@@ -114,21 +114,21 @@ namespace MATMEH_QUEST.Domain
             var borders = Room == null ? World.AvailableX : Room.AvailableX;
             if (Player.Location.X + 1 > borders[0])
             {
-                if (Player.isRight)
+                if (Player.IsRight)
                 {
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    Player.isRight = false;
+                    Player.IsRight = false;
                 }
-                Player.Location.X -= 15f;
+                Player.Location.X -= 1f;
             }
             else if (Room == null)
             {
                 if (World.Location.X < 0)
                 {
-                    World.Location.X += 15f;
+                    World.Location.X += 1f;
                     for (var i = 1; i < 11; i++)
                     {
-                        World.Doors[i].Location.X += 15;
+                        World.Doors[i].Location.X += 1;
                     }
                 }
             }
