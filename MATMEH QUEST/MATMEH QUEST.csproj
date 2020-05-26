@@ -183,9 +183,6 @@
     <None Include="Resources\Music_on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Олег Кензов - По Кайфу.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Олег Кензов - По Кайфу.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

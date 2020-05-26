@@ -29,7 +29,7 @@ namespace MATMEH_QUEST
             isMenu = true;
             isTutorial1 = true;
             isTutorial2 = true;
-            music = new SoundPlayer();
+            music = new SoundPlayer(Resources.Олег_Кензов___По_Кайфу);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             controller = new Controller(Size.Width);
@@ -255,6 +255,7 @@ namespace MATMEH_QUEST
             else
             {
                 ((Button) sender).BackgroundImage = Resources.Music_on;
+                music.Stop();
                 
             }
 
