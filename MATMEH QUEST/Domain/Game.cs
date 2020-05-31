@@ -22,9 +22,11 @@ namespace MATMEH_QUEST.Domain
         public CurrentAction CurrentAction;
         public PointF pointInWorld;
         public bool FlagDecan;
+        public bool FlagMatan;
 
         public void New()
         {
+            FlagMatan = false;
             FlagDecan = false;
             World = new World();
             Player = new Player(new PointF(50,300));
@@ -75,6 +77,10 @@ namespace MATMEH_QUEST.Domain
                             FlagDecan = true;
                             World.Doors[1].State = Door.DoorState.Open;
                             human.State = Human.HumanState.Awaiting;
+                        }
+                        else if (human.MissionId == 1)
+                        {
+                            FlagMatan = true;
                         }
                         return false;
                     }

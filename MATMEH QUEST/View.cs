@@ -83,6 +83,11 @@ namespace MATMEH_QUEST
                 else if (isDialog4)
                     PaintDialogWithD(graphics, Resources.Деканат_диалог4, 190, 840, Dialog4OnClick);
             }
+            else if (Controller.Game.FlagMatan)
+            {
+                Controls.Clear();
+                PaintDialogWithM(graphics, Resources.Деканат_диалог1, 190, 880, Dialog1OnClick);
+            }
             else
             {
                 var menuButton = new PictureBox()
@@ -133,6 +138,7 @@ namespace MATMEH_QUEST
                         
                         list.Click += (sender, args) =>
                         {
+                            Controller.Game.Room.Background = Resources.Деканат_готово;
                             missionItem = false;
                             missionItem1 = true;
                             Controls.Clear();
@@ -165,6 +171,27 @@ namespace MATMEH_QUEST
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
                 
             }
+        }
+
+        private void PaintDialogWithM(Graphics graphics, Bitmap image, int width, int x, EventHandler eventAction)
+        {
+            BackgroundImage = image;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            var button = new Button
+            {
+                BackColor = Color.Transparent,
+                Size = new Size(width, 65),
+                Location = new Point(x, 655),
+                FlatStyle = FlatStyle.Popup,
+                FlatAppearance =
+                {
+                    BorderSize = 0
+                }
+            };
+            Controls.Add(button);
+            DrawButton(graphics, button);
+            button.Update();
+            button.Click += eventAction;
         }
 
         private void PaintDialogWithD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
@@ -460,7 +487,7 @@ namespace MATMEH_QUEST
         private void Dialog4OnClick(object sender, EventArgs e)
         {
             flagM = false;
-            Controller.Game.Room.Background = Resources.Деканат_готово;
+            Controller.Game.Room.Background = Resources.Деканат_ожидание;
             Controls.Clear();
             isDialog4 = false;
             Controller.Game.FlagDecan = false;
