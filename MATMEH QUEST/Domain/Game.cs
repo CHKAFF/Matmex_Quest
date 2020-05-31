@@ -65,7 +65,7 @@ namespace MATMEH_QUEST.Domain
             var humans = Room != null ? Room.Humans : World.Humans;
             foreach (var human in humans)
             {
-                if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
+                if (Math.Abs(human.Location.X - Player.Location.X) <= 90)
                     if (human.IsReady())
                     {
                         World.Doors[human.MissionId].State = Door.DoorState.Open;
@@ -101,7 +101,7 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = true;
                 }
-                Player.Location.X += 20;
+                Player.Location.X += 60;
                 Player.IsRight = true;
             }
             else if (Room == null && World.Location.X > -5760)

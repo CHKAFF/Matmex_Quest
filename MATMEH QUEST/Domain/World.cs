@@ -17,13 +17,8 @@ namespace MATMEH_QUEST.Domain
         {
             Humans = new List<Human>();
             Doors = new Dictionary<int, Door>();
-<<<<<<< HEAD
-            Doors[0] = new Door(Door.DoorState.Open, new Room(Resources.Деканат_задание, new List<Human>(){new Human(Human.HumanState.Ready, 1, new Point(700, 0), new List<Item>())}, new List<Item>()),new Point(7040, 0) );
-            Doors[1] = new Door(Door.DoorState.Close, new Room(Resources.Команта1_задание, new List<Human>(), new List<Item>()),new Point(1050, 0) );
-=======
-            Doors[0] = new Door(Door.DoorState.Open, new Room(Resources.Деканат_задание, new List<Human>(){new Human(Human.HumanState.Ready, 0, new Point(700, 0), new List<Item>())}, new List<Item>()),new Point(7040, 0) );
-            Doors[1] = new Door(Door.DoorState.Open, new Room(Resources.Комната601_задание, new List<Human>(), new List<Item>()),new Point(1050, 0) );
->>>>>>> ae3613afbc6e5d0cdd9ceabffcfef3816b13e90d
+            Doors[0] = new Door(Door.DoorState.Open, new Room(Resources.Деканат_задание, new List<Human>(){new Human(Human.HumanState.Ready, 0, new Point(1000, 0), new List<Item>())}, new List<Item>()),new Point(7040, 0) );
+            Doors[1] = new Door(Door.DoorState.Close, new Room(Resources.Комната601_задание, new List<Human>(), new List<Item>()),new Point(1050, 0) );
         }
     }
     
