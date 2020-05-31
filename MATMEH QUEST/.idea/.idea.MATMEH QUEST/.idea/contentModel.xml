@@ -49,6 +49,8 @@
         <e p="Door.png" t="Include" />
         <e p="Health bar.png" t="Include" />
         <e p="Inventory.png" t="Include" />
+        <e p="Music_off.png" t="Include" />
+        <e p="Music_on.png" t="Include" />
         <e p="Player.png" t="Include" />
         <e p="Room name.png" t="Include" />
         <e p="Room1.png" t="Include" />
@@ -60,6 +62,7 @@
         <e p="задание 2.png" t="Include" />
         <e p="Обучение 1.png" t="Include" />
         <e p="Обучение 2.png" t="Include" />
+        <e p="Олег Кензов - По Кайфу.wav" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">

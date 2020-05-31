@@ -93,17 +93,17 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = true;
                 }
-                Player.Location.X += 1f;
+                Player.Location.X += 20;
                 Player.IsRight = true;
             }
             else if (Room == null)
             {
                 if (World.Location.X > -6000)
                 {
-                    World.Location.X -= 1f;
+                    World.Location.X -= 20f;
                     for (var i = 1; i < 11; i++)
                     {
-                        World.Doors[i].Location.X -= 1;
+                        World.Doors[i].Location.X -= 20;
                     }
                 }
             }
@@ -119,16 +119,16 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = false;
                 }
-                Player.Location.X -= 1f;
+                Player.Location.X -= 20;
             }
             else if (Room == null)
             {
                 if (World.Location.X < 0)
                 {
-                    World.Location.X += 1f;
+                    World.Location.X += 20;
                     for (var i = 1; i < 11; i++)
                     {
-                        World.Doors[i].Location.X += 1;
+                        World.Doors[i].Location.X += 20;
                     }
                 }
             }
