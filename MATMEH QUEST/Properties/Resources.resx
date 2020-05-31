@@ -178,14 +178,8 @@
   <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Деканат_задание" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Деканат_задание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="задание_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\задание 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Команта1_задание" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Команта1_взять_задание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="задание_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\задание 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,5 +189,29 @@
   </data>
   <data name="Всплывающее_меню" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Всплывающее меню.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Вернуться_кнопка" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Вернуться_кнопка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Выход_кнопка" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Выход_кнопка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Деканат_готово" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Деканат_готово.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Деканат_задание" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Деканат_задание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Деканат_ожидание" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Деканат_ожидание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Комната601_готово" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Комната601_готово.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Комната601_задание" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Комната601_задание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Комната601_ожидание" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Комната601_ожидание.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
