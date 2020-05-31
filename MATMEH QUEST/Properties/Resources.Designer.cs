@@ -407,5 +407,15 @@ namespace MATMEH_QUEST.Properties {
                 return ResourceManager.GetStream("Олег_Кензов___По_Кайфу", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Свиток {
+            get {
+                object obj = ResourceManager.GetObject("Свиток", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
