@@ -190,6 +190,9 @@
   <data name="Всплывающее_меню" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Всплывающее меню.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_8_bit_Dendy___Smooth_Criminal__musicpro_me_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8-bit Dendy - Smooth Criminal (musicpro.me).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Вернуться_кнопка" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Вернуться_кнопка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

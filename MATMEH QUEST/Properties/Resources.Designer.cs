@@ -71,6 +71,15 @@ namespace MATMEH_QUEST.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream _8_bit_Dendy___Smooth_Criminal__musicpro_me_ {
+            get {
+                return ResourceManager.GetStream("_8_bit_Dendy___Smooth_Criminal__musicpro_me_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Corridor {

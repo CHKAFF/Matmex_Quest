@@ -31,7 +31,7 @@ namespace MATMEH_QUEST
             isTutorial1 = true;
             isTutorial2 = true;
             isMenu = false;
-            music = new SoundPlayer(Resources.Олег_Кензов___По_Кайфу);
+            music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
