@@ -228,18 +228,6 @@
     <None Include="Resources\Свиток.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Деканат_диалог1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Деканат_диалог2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Деканат_диалог3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Деканат_диалог4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Обучение 1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +241,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\crestik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\601_диалог1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\601_диалог2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\601_диалог3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\601_диалог4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\601_диалог5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\демоверсия.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

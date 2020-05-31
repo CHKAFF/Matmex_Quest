@@ -71,6 +71,56 @@ namespace MATMEH_QUEST.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _601_диалог1 {
+            get {
+                object obj = ResourceManager.GetObject("_601_диалог1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _601_диалог2 {
+            get {
+                object obj = ResourceManager.GetObject("_601_диалог2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _601_диалог3 {
+            get {
+                object obj = ResourceManager.GetObject("_601_диалог3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _601_диалог4 {
+            get {
+                object obj = ResourceManager.GetObject("_601_диалог4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _601_диалог5 {
+            get {
+                object obj = ResourceManager.GetObject("_601_диалог5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream _8_bit_Dendy___Smooth_Criminal__musicpro_me_ {
@@ -275,6 +325,16 @@ namespace MATMEH_QUEST.Properties {
         public static System.Drawing.Bitmap Деканат_ожидание {
             get {
                 object obj = ResourceManager.GetObject("Деканат_ожидание", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap демоверсия {
+            get {
+                object obj = ResourceManager.GetObject("демоверсия", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
