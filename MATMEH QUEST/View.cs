@@ -62,7 +62,7 @@ namespace MATMEH_QUEST
             }
             else if (isDecanat)
             {
-                PaintDialogWihtD(graphics);
+                PaintDialogWihtD(graphics, Resources.Декан_Разговор_1, 0, 0, Next1OnClick);
             }
             else
             {
@@ -105,7 +105,6 @@ namespace MATMEH_QUEST
 
         private void PaintDialogWihtD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
         {
-            BackColor = Color.SandyBrown;
             BackgroundImage = image;
             BackgroundImageLayout = ImageLayout.Zoom;
             var button = new Button
@@ -362,6 +361,13 @@ namespace MATMEH_QUEST
         private void NextOnClick(object sender, EventArgs e)
         {
             isTutorial1 = false;
+            Controls.Clear();
+            Invalidate();
+        }
+
+        private void Next1OnClick(object sender, EventArgs e)
+        {
+            isDecanat = false;
             Controls.Clear();
             Invalidate();
         }
