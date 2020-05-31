@@ -92,6 +92,16 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap crestik {
+            get {
+                object obj = ResourceManager.GetObject("crestik", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Door {
             get {
                 object obj = ResourceManager.GetObject("Door", resourceCulture);
@@ -400,6 +410,16 @@ namespace MATMEH_QUEST.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Обучение_3 {
+            get {
+                object obj = ResourceManager.GetObject("Обучение_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream Олег_Кензов___По_Кайфу {
@@ -414,6 +434,16 @@ namespace MATMEH_QUEST.Properties {
         public static System.Drawing.Bitmap Свиток {
             get {
                 object obj = ResourceManager.GetObject("Свиток", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Табличка {
+            get {
+                object obj = ResourceManager.GetObject("Табличка", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

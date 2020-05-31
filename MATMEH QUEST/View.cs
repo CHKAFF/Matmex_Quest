@@ -16,6 +16,7 @@ namespace MATMEH_QUEST
         private bool isMainMenu;
         private bool isTutorial1;
         private bool isTutorial2;
+        private bool isTutorial3;
         private bool isMenu;
         private bool isDialog1;
         private bool isDialog2;
@@ -66,7 +67,11 @@ namespace MATMEH_QUEST
             }
             else if (isTutorial2)
             {
-                PaintTrain(graphics, Resources.Обучение_2, 430, 870,  OverButtonOnClick);
+                PaintTrain(graphics, Resources.Обучение_2, 250, 1050,  NextOnClick);
+            }
+            else if (isTutorial3)
+            {
+                PaintTrain(graphics, Resources.Обучение_3, 430, 870, OverButtonOnClick);
             }
             else if (isMenu)
             {
@@ -77,11 +82,11 @@ namespace MATMEH_QUEST
                 if(isDialog1)
                     PaintDialogWithD(graphics, Resources.Деканат_диалог1, 190, 880, Dialog1OnClick);
                 else if(isDialog2)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 840, Dialog2OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 880, Dialog2OnClick);
                 else if (isDialog3)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 840, Dialog3OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 880, Dialog3OnClick);
                 else if (isDialog4)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 190, 840, Dialog4OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 250, 810, Dialog4OnClick);
             }
             else if (Controller.Game.FlagMatan)
             {
@@ -451,14 +456,23 @@ namespace MATMEH_QUEST
 
         private void NextOnClick(object sender, EventArgs e)
         {
-            isTutorial1 = false;
+            if (isTutorial1)
+            {
+                isTutorial1 = false;
+                isTutorial2 = true;
+            }
+            else if(isTutorial2)
+            {
+                isTutorial2 = false;
+                isTutorial3 = true;
+            }
             Controls.Clear();
             Invalidate();
         }
 
         private void OverButtonOnClick(object sender, EventArgs e)
         {
-            isTutorial2 = false;
+            isTutorial3 = false;
             Controls.Clear();
             Invalidate();
         }

@@ -159,9 +159,6 @@
     <None Include="Resources\Декан_Разговор_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Обучение 2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Выход.png" />
   </ItemGroup>
   <ItemGroup>
@@ -181,9 +178,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Player.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Обучение 1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\меню.png" />
@@ -225,6 +219,15 @@
     <None Include="Resources\задание 3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Олег Кензов - По Кайфу.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8-bit Dendy - Smooth Criminal %28musicpro.me%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Свиток.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Деканат_диалог1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -237,13 +240,19 @@
     <None Include="Resources\Деканат_диалог4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Олег Кензов - По Кайфу.wav" />
+    <None Include="Resources\Обучение 1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\8-bit Dendy - Smooth Criminal %28musicpro.me%29.wav" />
+    <None Include="Resources\Обучение 2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Свиток.png" />
+    <None Include="Resources\Обучение 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Табличка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crestik.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
