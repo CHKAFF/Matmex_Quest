@@ -25,6 +25,7 @@ namespace MATMEH_QUEST
         private bool missionItem;
         private bool missionItem1;
         private bool flagM;
+        private bool tk;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -46,6 +47,7 @@ namespace MATMEH_QUEST
             missionItem = false;
             missionItem = false;
             flagM = true;
+            tk = false;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
@@ -111,7 +113,6 @@ namespace MATMEH_QUEST
                 }
                 if (Controller.Game.Room == null)
                 {
-                    
                     PaintWorld(graphics);
                     if (flagM)
                     {
@@ -142,35 +143,67 @@ namespace MATMEH_QUEST
                         list.Update();
                         
                         list.Click += (sender, args) =>
-                        {
+                        { 
                             Controller.Game.Room.Background = Resources.Деканат_готово;
                             missionItem = false;
                             missionItem1 = true;
+                            tk = true;
                             Controls.Clear();
-                            Invalidate();
-                        };
-                    }
-                    if (missionItem1)
-                    {
-                        var list = new PictureBox
-                        {
-                            Image = Resources.Свиток,
-                            Location = new Point(565, 740),
-                            SizeMode = PictureBoxSizeMode.Zoom,
-                            BackColor = Color.Transparent
-                        };
-                        Controls.Add(list);
-                        list.Update();
-                        
-                        list.Click += (sender, args) =>
-                        {
-                            list.Location = new Point(100, 600);
-                            list.Size = new Size(10, 10);
                             Invalidate();
                         };
                     }
                     if (flagM)
                         PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
+                }
+                if (missionItem1)
+                {
+                    var list = new PictureBox
+                    {
+                        Image = Resources.Свиток,
+                        Location = new Point(565, 740),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BackColor = Color.Transparent
+                    };
+                    Controls.Add(list);
+                    list.Update();
+                        
+                    list.Click += (sender, args) =>
+                    {
+                        tk = true;
+                        Controls.Clear();
+                        Invalidate();
+                    };
+                }
+
+                if (tk)
+                {
+                    var l = new PictureBox()
+                    {
+                        Image = Resources.Табличка,
+                        Location = new Point(1000, 650),
+                        Size = new Size(260,200),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BackColor = Color.Transparent
+                    };
+                    Controls.Add(l);
+                    l.Update();
+                    var k = new PictureBox()
+                    {
+                        Image = Resources.crestik,
+                        Location = new Point(990, 700),
+                        Size = new Size(20,20),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BackColor = Color.Transparent
+                    };
+                    k.BringToFront();
+                    Controls.Add(k);
+                    k.Update();
+                    k.Click += (sender, args) =>
+                    {
+                        tk = false;
+                        Controls.Clear();
+                        Invalidate();
+                    };
                 }
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));

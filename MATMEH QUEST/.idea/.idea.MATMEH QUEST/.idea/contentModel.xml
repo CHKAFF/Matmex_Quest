@@ -47,6 +47,7 @@
         <e p="19190.ttf" t="Include" />
         <e p="8-bit Dendy - Smooth Criminal (musicpro.me).wav" t="Include" />
         <e p="Corridor.png" t="Include" />
+        <e p="crestik.png" t="Include" />
         <e p="Door.png" t="Include" />
         <e p="Health bar.png" t="Include" />
         <e p="Inventory.png" t="Include" />
@@ -81,8 +82,10 @@
         <e p="НОВАЯ ИГРА.png" t="Include" />
         <e p="Обучение 1.png" t="Include" />
         <e p="Обучение 2.png" t="Include" />
+        <e p="Обучение 3.png" t="Include" />
         <e p="Олег Кензов - По Кайфу.wav" t="Include" />
         <e p="Свиток.png" t="Include" />
+        <e p="Табличка.png" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">
