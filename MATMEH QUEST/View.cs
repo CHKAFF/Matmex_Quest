@@ -88,7 +88,7 @@ namespace MATMEH_QUEST
                 else if(Controller.Game.Room != null)
                 {
                     PaintRoom(graphics);
-                    PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 100)), 10);
+                    PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
                 }
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));

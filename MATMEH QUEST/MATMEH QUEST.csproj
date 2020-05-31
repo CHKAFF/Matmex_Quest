@@ -183,16 +183,7 @@
     <None Include="Resources\Player.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\задание 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\задание 2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Обучение 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\задание 3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\меню.png" />
@@ -223,6 +214,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Выход_кнопка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_диалог4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Олег Кензов - По Кайфу.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
