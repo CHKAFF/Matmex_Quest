@@ -73,7 +73,7 @@ namespace MATMEH_QUEST.Domain
                         if (human.MissionId == 0)
                         {
                             FlagDecan = true;
-                            World.Doors[human.MissionId].State = Door.DoorState.Open;
+                            World.Doors[1].State = Door.DoorState.Open;
                             human.State = Human.HumanState.Awaiting;
                         }
                         return false;

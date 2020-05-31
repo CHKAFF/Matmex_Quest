@@ -22,6 +22,8 @@ namespace MATMEH_QUEST
         private bool isDialog3;
         private bool isDialog4;
         private bool missionItem;
+        private bool missionItem1;
+        private bool flagM;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -41,6 +43,8 @@ namespace MATMEH_QUEST
             isDialog3 = true;
             isDialog4 = true;
             missionItem = false;
+            missionItem = false;
+            flagM = true;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
@@ -99,13 +103,17 @@ namespace MATMEH_QUEST
                 {
                     
                     PaintWorld(graphics);
-                    if (Controller.Game.World.Location.X > -5600)
+                    if (flagM)
                     {
-                        PaintMission(graphics, new Bitmap(Resources.задание_1, new Size(290, 120)),  0);
-                    }
-                    else
-                    {
-                        PaintMission(graphics, new Bitmap(Resources.задание_2, new Size(290, 120)), 0);
+                        if (Controller.Game.World.Location.X > -5600)
+                        {
+                            PaintMission(graphics, new Bitmap(Resources.задание_1, new Size(290, 120)), 0);
+                        }
+                        else
+                        {
+
+                            PaintMission(graphics, new Bitmap(Resources.задание_2, new Size(290, 120)), 0);
+                        }
                     }
                 }
                 else if(Controller.Game.Room != null)
@@ -113,10 +121,6 @@ namespace MATMEH_QUEST
                     PaintRoom(graphics);
                     if (missionItem)
                     {
-<<<<<<< HEAD
-                        var a = new PictureBox();
-                        a.Image = Resources.задание_1;
-=======
                         var list = new PictureBox
                         {
                             Image = Resources.Свиток,
@@ -129,13 +133,33 @@ namespace MATMEH_QUEST
                         
                         list.Click += (sender, args) =>
                         {
+                            missionItem = false;
+                            missionItem1 = true;
+                            Controls.Clear();
+                            Invalidate();
+                        };
+                    }
+                    if (missionItem1)
+                    {
+                        var list = new PictureBox
+                        {
+                            Image = Resources.Свиток,
+                            Location = new Point(565, 740),
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            BackColor = Color.Transparent
+                        };
+                        Controls.Add(list);
+                        list.Update();
+                        
+                        list.Click += (sender, args) =>
+                        {
                             list.Location = new Point(100, 600);
                             list.Size = new Size(10, 10);
                             Invalidate();
                         };
->>>>>>> origin/view
                     }
-                    PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
+                    if (flagM)
+                        PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
                 }
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
@@ -435,6 +459,8 @@ namespace MATMEH_QUEST
 
         private void Dialog4OnClick(object sender, EventArgs e)
         {
+            flagM = false;
+            Controller.Game.Room.Background = Resources.Деканат_готово;
             Controls.Clear();
             isDialog4 = false;
             Controller.Game.FlagDecan = false;

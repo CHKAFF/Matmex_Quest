@@ -82,6 +82,7 @@
         <e p="Обучение 1.png" t="Include" />
         <e p="Обучение 2.png" t="Include" />
         <e p="Олег Кензов - По Кайфу.wav" t="Include" />
+        <e p="Свиток.png" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">

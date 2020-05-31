@@ -10,7 +10,7 @@ namespace MATMEH_QUEST.Domain
         public Dictionary<int, Door> Doors{ get; set; }
         public List<Human> Humans { get; set; }
         public HashSet<Item> LevelItems { get; set; }
-        public int[] AvailableX = {50, 1100};
+        public int[] AvailableX = {100, 1100};
         public PointF Location;
 
         public World()
