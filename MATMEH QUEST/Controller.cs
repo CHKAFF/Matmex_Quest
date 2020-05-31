@@ -31,17 +31,11 @@ namespace MATMEH_QUEST
                     break;
                 case Keys.E:
                 {
-
-                    if (Game.CurrentAction == CurrentAction.EnterInRoom)
-                        Game.EnterInRoom();
-                    if (Game.CurrentAction == CurrentAction.LeaveRoom)
-                        Game.LeaveFromRoom();
-                    if (Game.CurrentAction == CurrentAction.GiveItem)
-                        Game.GiveItem();
-                    if (Game.CurrentAction == CurrentAction.TalkWithHuman)
-                        Game.TalkWithHuman();
+                    if (Game.EnterInRoom())
+                        if (Game.LeaveFromRoom())
+                            if (Game.TalkWithHuman())
+                                Game.GiveItem();
                     break;
-
                 }
                         
             }

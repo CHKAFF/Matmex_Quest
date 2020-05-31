@@ -31,31 +31,36 @@ namespace MATMEH_QUEST.Domain
             CurrentAction = CurrentAction.EnterInRoom;
         }
 
-        public void EnterInRoom()
+        public bool EnterInRoom()
         {
+            if (Room != null)
+                return true;
             foreach (var door in World.Doors)
             {
-                if (door.Value.IsOpen())
+                if (Math.Abs(Player.Location.X - door.Value.Location.X) < 100 && door.Value.IsOpen())
                 {
                     Room = door.Value.Room;
                     pointInWorld = Player.Location;
                     Player.Location.X = 50;
                     Player.Location.Y = 350;
-                    break;
+                    return false;
                 }
             }
+            return true;
         }
 
-        public void LeaveFromRoom()
+        public bool LeaveFromRoom()
         {
-            if(Room != null)
+            if(Math.Abs(Player.Location.X - 80) < 100 && Room != null)
             {
                 Room = null;
                 Player.Location = pointInWorld;
+                return false;
             }
+            return true;
         }
         
-        public void TalkWithHuman()
+        public bool TalkWithHuman()
         {
             var humans = Room != null ? Room.Humans : World.Humans;
             foreach (var human in humans)
@@ -65,8 +70,10 @@ namespace MATMEH_QUEST.Domain
                     {
                         World.Doors[human.MissionId].State = Door.DoorState.Open;
                         human.State = Human.HumanState.Awaiting;
+                        return false;
                     }
             }
+            return true;
         }
         public void GiveItem()
         {
@@ -94,12 +101,19 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = true;
                 }
-                Player.Location.X += 60f;
+                Player.Location.X += 20;
                 Player.IsRight = true;
             }
             else if (Room == null && World.Location.X > -5760)
             {
-                World.Location.X -= 60f;
+                if (World.Location.X > -6000)
+                {
+                    World.Location.X -= 60f;
+                    for (var i = 0; i < 2; i++)
+                    {
+                        World.Doors[i].Location.X -= 60;
+                    }
+                }
             }
         }
         
@@ -117,7 +131,14 @@ namespace MATMEH_QUEST.Domain
             }
             else if (Room == null && World.Location.X < 0)
             {
-                World.Location.X += 60f;
+                if (World.Location.X < 0)
+                {
+                    World.Location.X += 60f;
+                    for (var i = 0; i < 2; i++)
+                    {
+                        World.Doors[i].Location.X += 60;
+                    }
+                }
             }
         }
     }

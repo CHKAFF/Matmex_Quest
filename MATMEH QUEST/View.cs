@@ -70,7 +70,6 @@ namespace MATMEH_QUEST
                 }
                 if (Controller.Game.Room == null)
                 {
-                    Controller.Game.CurrentAction = CurrentAction.EnterInRoom;
                     PaintWorld(graphics);
                     if (Controller.Game.World.Location.X > -5600)
                     {
@@ -83,7 +82,6 @@ namespace MATMEH_QUEST
                 }
                 else if(Controller.Game.Room != null)
                 {
-                    Controller.Game.CurrentAction = CurrentAction.LeaveRoom;
                     PaintRoom(graphics);
                     PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 100)), 10);
                 }

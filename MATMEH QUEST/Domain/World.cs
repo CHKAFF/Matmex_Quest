@@ -16,7 +16,8 @@ namespace MATMEH_QUEST.Domain
         public World()
         {
             Doors = new Dictionary<int, Door>();
-            Doors[0] = new Door(Door.DoorState.Open, new Room(Resources.Деканат_задание, new List<Human>(), new List<Item>()),new Point(0, 350) );
+            Doors[0] = new Door(Door.DoorState.Open, new Room(Resources.Деканат_задание, new List<Human>(), new List<Item>()),new Point(7040, 0) );
+            Doors[1] = new Door(Door.DoorState.Open, new Room(Resources.Команта1_задание, new List<Human>(), new List<Item>()),new Point(1050, 0) );
         }
     }
     
