@@ -190,4 +190,10 @@
   <data name="задание_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\задание 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="меню" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\меню.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Всплывающее_меню" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Всплывающее меню.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
