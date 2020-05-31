@@ -45,6 +45,7 @@
       </e>
       <e p="Resources" t="Include">
         <e p="19190.ttf" t="Include" />
+        <e p="8-bit Dendy - Smooth Criminal (musicpro.me).wav" t="Include" />
         <e p="Corridor.png" t="Include" />
         <e p="Door.png" t="Include" />
         <e p="Health bar.png" t="Include" />
@@ -62,6 +63,10 @@
         <e p="Декан_Разговор_2.png" t="Include" />
         <e p="Декан_Разговор_3.png" t="Include" />
         <e p="Деканат_готово.png" t="Include" />
+        <e p="Деканат_диалог1.png" t="Include" />
+        <e p="Деканат_диалог2.png" t="Include" />
+        <e p="Деканат_диалог3.png" t="Include" />
+        <e p="Деканат_диалог4.png" t="Include" />
         <e p="Деканат_задание.png" t="Include" />
         <e p="Деканат_ожидание.png" t="Include" />
         <e p="задание 1.png" t="Include" />
@@ -76,6 +81,7 @@
         <e p="НОВАЯ ИГРА.png" t="Include" />
         <e p="Обучение 1.png" t="Include" />
         <e p="Обучение 2.png" t="Include" />
+        <e p="Олег Кензов - По Кайфу.wav" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">

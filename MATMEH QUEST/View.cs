@@ -17,6 +17,7 @@ namespace MATMEH_QUEST
         private bool isTutorial1;
         private bool isTutorial2;
         private bool isMenu;
+        private bool isDecanat;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -35,6 +36,7 @@ namespace MATMEH_QUEST
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
+            isDecanat = Controller.Game.FlagDecan;
             KeyDown += (sender, args) =>
             {
                 Controller.Action(args);
@@ -57,6 +59,10 @@ namespace MATMEH_QUEST
             else if (isMenu)
             {
                 PaintMenu(graphics);
+            }
+            else if (isDecanat)
+            {
+                PaintDialogWihtD(graphics);
             }
             else
             {
@@ -95,6 +101,28 @@ namespace MATMEH_QUEST
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
                 
             }
+        }
+
+        private void PaintDialogWihtD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
+        {
+            BackColor = Color.SandyBrown;
+            BackgroundImage = image;
+            BackgroundImageLayout = ImageLayout.Zoom;
+            var button = new Button
+            {
+                BackColor = Color.Transparent,
+                Size = new Size(width, 90),
+                Location = new Point(x, 555),
+                FlatStyle = FlatStyle.Popup,
+                FlatAppearance =
+                {
+                    BorderSize = 0
+                }
+            };
+            Controls.Add(button);
+            DrawButton(graphics, button);
+            button.Update();
+            button.Click += eventAction;
         }
 
         private void MenuButtonOnClick(object sender, EventArgs e)

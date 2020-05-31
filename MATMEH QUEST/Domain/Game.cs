@@ -21,9 +21,11 @@ namespace MATMEH_QUEST.Domain
         public Room Room;
         public CurrentAction CurrentAction;
         public PointF pointInWorld;
+        public bool FlagDecan;
 
         public void New()
         {
+            FlagDecan = false;
             World = new World();
             Player = new Player(new PointF(50,300));
             Inventory = new Inventory();
@@ -68,8 +70,12 @@ namespace MATMEH_QUEST.Domain
                 if (Math.Abs(human.Location.X - Player.Location.X) <= 90)
                     if (human.IsReady())
                     {
-                        World.Doors[human.MissionId].State = Door.DoorState.Open;
-                        human.State = Human.HumanState.Awaiting;
+                        if (human.MissionId == 0)
+                        {
+                            FlagDecan = true;
+                            World.Doors[human.MissionId].State = Door.DoorState.Open;
+                            human.State = Human.HumanState.Awaiting;
+                        }
                         return false;
                     }
             }
