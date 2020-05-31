@@ -53,13 +53,18 @@ namespace MATMEH_QUEST
             {
                 PaintTrain(graphics, Resources.Обучение_2, 430, 870,  OverButtonOnClick);
             }
+            else if (isMenu)
+            {
+                PaintMenu(graphics);
+            }
             else
             {
                 var menuButton = new PictureBox()
                 {
                     Image = Resources.меню,
                     BackColor = Color.Transparent,
-                    SizeMode = PictureBoxSizeMode.Zoom
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Location =  new Point(20, 0)
                 };
                 menuButton.Click += MenuButtonOnClick;
                 Controls.Add(menuButton);
@@ -93,12 +98,67 @@ namespace MATMEH_QUEST
 
         private void MenuButtonOnClick(object sender, EventArgs e)
         {
+            Controls.Clear();
             isMenu = true;
+            Invalidate();
         }
 
         private void PaintMenu(Graphics graphics)
         {
-            BackgroundImage = Resources.меню;
+            var backgroundColor = Color.FromArgb(145, 215, 254);
+            BackColor = backgroundColor;
+            var table = new TableLayoutPanel();
+            table.RowStyles.Clear();
+            table.ColumnStyles.Clear();
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 40));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 25));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 35));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
+            table.BackgroundImage = Resources.Всплывающее_меню;
+            table.BackgroundImageLayout = ImageLayout.Zoom;
+
+            var returnButton = new Button
+            {
+                BackgroundImage = Resources.Вернуться_кнопка,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.FromArgb(3, 153, 228)
+            };
+            returnButton.FlatAppearance.BorderSize = 0;
+            returnButton.Dock = DockStyle.Fill;
+
+            var exit = new Button
+            {
+                BackgroundImage = Resources.Выход_кнопка,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.FromArgb(3, 153, 228)
+            };
+            exit.FlatAppearance.BorderSize = 0;
+            exit.Dock = DockStyle.Fill;
+
+            table.Controls.Add(new Control(), 0, 0);
+            table.Controls.Add(returnButton, 1, 1);
+            table.Controls.Add(exit, 1, 2);
+            table.Controls.Add(new Control(), 1, 3);
+            table.Controls.Add(new Control(), 2, 0);
+       
+            table.Dock = DockStyle.Fill;
+            Controls.Add(table);
+            table.Update();
+
+            returnButton.Click += ReturnButtonOnClick;
+            exit.Click += ExitOnClick;
+        }
+
+        private void ReturnButtonOnClick(object sender, EventArgs e)
+        {
+            isMenu = false;
+            Controls.Clear();
+            Invalidate();
         }
 
         private void PaintMission(Graphics graphics, Bitmap missionTable, int dy)

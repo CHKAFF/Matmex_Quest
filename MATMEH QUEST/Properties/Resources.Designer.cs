@@ -153,6 +153,16 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Вернуться_кнопка {
+            get {
+                object obj = ResourceManager.GetObject("Вернуться_кнопка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Всплывающее_меню {
             get {
                 object obj = ResourceManager.GetObject("Всплывающее_меню", resourceCulture);
@@ -166,6 +176,16 @@ namespace MATMEH_QUEST.Properties {
         public static System.Drawing.Bitmap Выход {
             get {
                 object obj = ResourceManager.GetObject("Выход", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Выход_кнопка {
+            get {
+                object obj = ResourceManager.GetObject("Выход_кнопка", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +223,29 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Деканат_готово {
+            get {
+                object obj = ResourceManager.GetObject("Деканат_готово", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Деканат_задание {
             get {
                 object obj = ResourceManager.GetObject("Деканат_задание", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Деканат_ожидание {
+            get {
+                object obj = ResourceManager.GetObject("Деканат_ожидание", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +293,29 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Команта1_задание {
+        public static System.Drawing.Bitmap Комната601_готово {
             get {
-                object obj = ResourceManager.GetObject("Команта1_задание", resourceCulture);
+                object obj = ResourceManager.GetObject("Комната601_готово", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Комната601_задание {
+            get {
+                object obj = ResourceManager.GetObject("Комната601_задание", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Комната601_ожидание {
+            get {
+                object obj = ResourceManager.GetObject("Комната601_ожидание", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
