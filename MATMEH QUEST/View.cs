@@ -21,6 +21,7 @@ namespace MATMEH_QUEST
         private bool isDialog2;
         private bool isDialog3;
         private bool isDialog4;
+        private bool missionItem;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -39,6 +40,7 @@ namespace MATMEH_QUEST
             isDialog2 = true;
             isDialog3 = true;
             isDialog4 = true;
+            isDialog4 = false;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
@@ -95,6 +97,7 @@ namespace MATMEH_QUEST
                 }
                 if (Controller.Game.Room == null)
                 {
+                    
                     PaintWorld(graphics);
                     if (Controller.Game.World.Location.X > -5600)
                     {
@@ -108,6 +111,11 @@ namespace MATMEH_QUEST
                 else if(Controller.Game.Room != null)
                 {
                     PaintRoom(graphics);
+                    if (missionItem)
+                    {
+                        var a = new PictureBox();
+                        a.Image = Resources.
+                    }
                     PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
                 }
                 var inventory = new Bitmap(Resources.Inventory);
@@ -408,6 +416,7 @@ namespace MATMEH_QUEST
 
         private void Dialog4OnClick(object sender, EventArgs e)
         {
+            missionItem = true;
             Controls.Clear();
             isDialog4 = false;
             Controller.Game.FlagDecan = false;

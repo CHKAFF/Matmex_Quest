@@ -36,7 +36,6 @@ namespace MATMEH_QUEST
                             Game.LeaveFromRoom();
                     break;
                 }
-                        
             }
         }
     }
