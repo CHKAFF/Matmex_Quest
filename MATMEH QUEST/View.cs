@@ -114,7 +114,7 @@ namespace MATMEH_QUEST
                     if (missionItem)
                     {
                         var a = new PictureBox();
-                        a.Image = Resources.
+                        a.Image = Resources.задание_1;
                     }
                     PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
                 }
