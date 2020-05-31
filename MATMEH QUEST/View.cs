@@ -16,9 +16,6 @@ namespace MATMEH_QUEST
         private bool isMenu;
         private bool isTutorial1;
         private bool isTutorial2;
-        private bool isTutorial3;
-        private bool isTutorial4;
-        private bool isTutorial5;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -32,9 +29,6 @@ namespace MATMEH_QUEST
             isMenu = true;
             isTutorial1 = true;
             isTutorial2 = true;
-            isTutorial3 = true;
-            isTutorial4 = true;
-            isTutorial5 = true;
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
@@ -72,7 +66,7 @@ namespace MATMEH_QUEST
                         PaintMission(graphics, new Bitmap(Resources.задание_2, new Size(290, 120)), 0);
                     }
                 }
-                else if(Controller.Game.Room != null && Controller.Game.World.Location.X > -5760)
+                else if(Controller.Game.Room != null)
                 {
                     Controller.Game.CurrentAction = CurrentAction.LeaveRoom;
                     PaintRoom(graphics);
