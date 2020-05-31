@@ -15,7 +15,7 @@ namespace TESTS
         public void TestCreateItem()
         {
             var item = new Item(42,57, new Point(1, 1));
-            var actual = item.MissionID == 42 && item.ObjectID == 57;
+            var actual = item.MissionId == 42 && item.ObjectId == 57;
             Assert.AreEqual(true, actual);
         }
     }

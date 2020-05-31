@@ -132,9 +132,6 @@
     <None Include="Resources\фон.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Player.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Door.png" />
   </ItemGroup>
   <ItemGroup>
@@ -165,16 +162,16 @@
     <None Include="Resources\Декан_Разговор_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\задание 2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Обучение 1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Обучение 2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\задание 1.png" />
+    <None Include="Resources\Деканат с облачком.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Выход.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\НОВАЯ ИГРА.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Music_off.png" />
@@ -183,7 +180,31 @@
     <None Include="Resources\Music_on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Олег Кензов - По Кайфу.wav" />
+    <None Include="Resources\Музыка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Кнопка далее.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Обучение 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Команта1_взять_задание.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Деканат_задание.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\задание 3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

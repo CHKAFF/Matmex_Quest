@@ -28,7 +28,7 @@ namespace TESTS
                 game.PlayerMoveRight();
             }
             game.TalkWithHuman();
-            Assert.AreEqual(game.World.Doors[game.Room.Humans[0].MissionID].State, Door.DoorState.Open);
+            Assert.AreEqual(game.World.Doors[game.Room.Humans[0].MissionId].State, Door.DoorState.Open);
             game.LeaveFromRoom();
             Assert.AreEqual(game.Room, null);
             Assert.AreEqual(locationInWorld, game.Player.Location);
@@ -41,7 +41,7 @@ namespace TESTS
             game.EnterInRoom();
             game.Inventory.PutItem(game.Room.GetItem(new Point(15, 15)));
             Assert.AreEqual(0, game.Room.LevelItems.Count);
-            Assert.AreEqual(1,game.Inventory.items.Count);
+            Assert.AreEqual(1,game.Inventory.Items.Count);
             game.LeaveFromRoom();
             for (var i = 0; i < 20; i++)
             {
@@ -52,10 +52,10 @@ namespace TESTS
             {
                 game.PlayerMoveRight();
             }
-            game.GiveItem(game.Inventory.items.Keys.ToList().FirstOrDefault());
-            Assert.AreEqual(0, game.Room.Humans[0].expectedItems.Count);
+            game.GiveItem(game.Inventory.Items.Keys.ToList().FirstOrDefault());
+            Assert.AreEqual(0, game.Room.Humans[0].ExpectedItems.Count);
             Assert.AreEqual(Human.HumanState.NotReady,game.Room.Humans[0].State);
-            Assert.AreEqual(0, game.Inventory.items.Count);
+            Assert.AreEqual(0, game.Inventory.Items.Count);
         }
     }
 }

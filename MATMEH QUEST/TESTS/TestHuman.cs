@@ -54,8 +54,8 @@ namespace TESTS
             human.MakeAwaiting();
             var item1 = new Item(0, 2, new Point(1, 1));
             var item2 = new Item(0, 1, new Point(1, 1));
-            human.expectedItems.Add(item1);
-            human.expectedItems.Add(item2);
+            human.ExpectedItems.Add(item1);
+            human.ExpectedItems.Add(item2);
             var actual1 = human.IsCorrectItem(item1);
             var actual2 = human.IsCorrectItem(new Item(1,3, new Point(1, 1)));
             Assert.AreEqual(true, actual1);
@@ -68,10 +68,10 @@ namespace TESTS
             human.MakeAwaiting();
             var item1 = new Item(0, 2, new Point(1, 1));
             var item2 = new Item(0, 1, new Point(1, 1));
-            human.expectedItems.Add(item1);
-            human.expectedItems.Add(item2);
+            human.ExpectedItems.Add(item1);
+            human.ExpectedItems.Add(item2);
             human.RemoveBroughtItem(item1);
-            var actual = human.expectedItems.Count;
+            var actual = human.ExpectedItems.Count;
             Assert.AreEqual(1, actual);
         }
     }

@@ -1,50 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Xml.Linq;
 using System.Linq;
-using System.Windows.Forms;
 using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST.Domain
 {
+    public enum CurrentAction
+    {
+        TalkWithHuman,
+        GiveItem,
+        TakeItem,
+        EnterInRoom,
+        LeaveRoom
+    }
     public class Game
     {
         public World World;
         public Player Player;
         public Inventory Inventory;
         public Room Room;
-        private PointF pointInWorld;
-        public Bitmap MissionSprite;
+        public CurrentAction CurrentAction;
+        public PointF pointInWorld;
 
         public void New()
         {
-            this.World = new World();
+            World = new World();
             Player = new Player(new PointF(50,300));
             Inventory = new Inventory();
             Room = null;
+            CurrentAction = CurrentAction.EnterInRoom;
         }
 
         public void EnterInRoom()
         {
             foreach (var door in World.Doors)
             {
-                if (Math.Abs(door.Value.Location.X - Player.Location.X) <= 200)
-                    if (door.Value.IsOpen())
-                    {
-                        Room = door.Value.Room;
-                        pointInWorld = Player.Location;
-                        Player.Location.X = 50;
-                        Player.Location.Y = 350;
-                        MissionSprite = new Bitmap(Resources.задание_2);
-                        break;
-                    }
+                if (door.Value.IsOpen())
+                {
+                    Room = door.Value.Room;
+                    pointInWorld = Player.Location;
+                    Player.Location.X = 50;
+                    Player.Location.Y = 350;
+                    break;
+                }
             }
         }
 
         public void LeaveFromRoom()
         {
-            if (Room != null)
+            if(Room != null)
             {
                 Room = null;
                 Player.Location = pointInWorld;
@@ -59,26 +63,23 @@ namespace MATMEH_QUEST.Domain
                 if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
                     if (human.IsReady())
                     {
-                        World.Doors[human.MissionID].State = Door.DoorState.Open;
+                        World.Doors[human.MissionId].State = Door.DoorState.Open;
                         human.State = Human.HumanState.Awaiting;
                     }
             }
         }
-
-        public void GiveItem(Item item)
+        public void GiveItem()
         {
+            var item = Inventory.Items.Keys.FirstOrDefault();
             foreach (var human in Room.Humans)
             {
                 if (Math.Abs(human.Location.X - Player.Location.X) <= 10)
-                    if (human.State == Human.HumanState.Awaiting)
+                    if (human.State == Human.HumanState.Awaiting && human.IsCorrectItem(item))
                     {
-                        if (human.IsCorrectItem(item))
-                        {
-                            human.RemoveBroughtItem(item);
-                            if (human.expectedItems.Count == 0)
-                                human.MakeNotReady();
-                            Inventory.TakeItem(item);
-                        }
+                        human.RemoveBroughtItem(item);
+                        if (human.ExpectedItems.Count == 0)
+                            human.MakeNotReady();
+                        Inventory.TakeItem(item);
                     }
             }
         }
@@ -93,11 +94,16 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = true;
                 }
+<<<<<<< HEAD
                 Player.Location.X += 20;
+=======
+                Player.Location.X += 60f;
+>>>>>>> 9548e6086c5bbc648cd8f253066f7d35524f7804
                 Player.IsRight = true;
             }
-            else if (Room == null)
+            else if (Room == null && World.Location.X > -5760)
             {
+<<<<<<< HEAD
                 if (World.Location.X > -6000)
                 {
                     World.Location.X -= 20f;
@@ -106,6 +112,9 @@ namespace MATMEH_QUEST.Domain
                         World.Doors[i].Location.X -= 20;
                     }
                 }
+=======
+                World.Location.X -= 60f;
+>>>>>>> 9548e6086c5bbc648cd8f253066f7d35524f7804
             }
         }
         
@@ -119,10 +128,15 @@ namespace MATMEH_QUEST.Domain
                     Player.Sprite.RotateFlip(RotateFlipType.Rotate180FlipY);
                     Player.IsRight = false;
                 }
+<<<<<<< HEAD
                 Player.Location.X -= 20;
+=======
+                Player.Location.X -= 60f;
+>>>>>>> 9548e6086c5bbc648cd8f253066f7d35524f7804
             }
-            else if (Room == null)
+            else if (Room == null && World.Location.X < 0)
             {
+<<<<<<< HEAD
                 if (World.Location.X < 0)
                 {
                     World.Location.X += 20;
@@ -131,6 +145,9 @@ namespace MATMEH_QUEST.Domain
                         World.Doors[i].Location.X += 20;
                     }
                 }
+=======
+                World.Location.X += 60f;
+>>>>>>> 9548e6086c5bbc648cd8f253066f7d35524f7804
             }
         }
     }

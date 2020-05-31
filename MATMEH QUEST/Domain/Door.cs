@@ -5,8 +5,6 @@ namespace MATMEH_QUEST.Domain
     public class Door
     {
         public Point Location;
-        public int Height = 100;
-        public int Width = 200;
         public Room Room;
         
         public enum DoorState
@@ -19,9 +17,9 @@ namespace MATMEH_QUEST.Domain
 
         public Door(DoorState state, Room room, Point location)
         {
-            this.Location = location;
-            this.State = state;
-            this.Room = room;
+            Location = location;
+            State = state;
+            Room = room;
 
         }
 
