@@ -54,15 +54,24 @@
         <e p="Player.png" t="Include" />
         <e p="Room name.png" t="Include" />
         <e p="Room1.png" t="Include" />
+        <e p="Всплывающее меню.png" t="Include" />
+        <e p="Выход.png" t="Include" />
         <e p="Декан_Разговор_1.png" t="Include" />
         <e p="Декан_Разговор_2.png" t="Include" />
         <e p="Декан_Разговор_3.png" t="Include" />
+        <e p="Деканат с облачком.png" t="Include" />
         <e p="Деканат.png" t="Include" />
+        <e p="Деканат_задание.png" t="Include" />
         <e p="задание 1.png" t="Include" />
         <e p="задание 2.png" t="Include" />
+        <e p="задание 3.png" t="Include" />
+        <e p="Кнопка далее.png" t="Include" />
+        <e p="Команта1_взять_задание.png" t="Include" />
+        <e p="меню.png" t="Include" />
+        <e p="Музыка.png" t="Include" />
+        <e p="НОВАЯ ИГРА.png" t="Include" />
         <e p="Обучение 1.png" t="Include" />
         <e p="Обучение 2.png" t="Include" />
-        <e p="Олег Кензов - По Кайфу.wav" t="Include" />
         <e p="фон.png" t="Include" />
       </e>
       <e p="TESTS" t="IncludeRecursive">
