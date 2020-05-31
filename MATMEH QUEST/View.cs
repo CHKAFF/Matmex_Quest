@@ -17,7 +17,10 @@ namespace MATMEH_QUEST
         private bool isTutorial1;
         private bool isTutorial2;
         private bool isMenu;
-        private bool isDecanat;
+        private bool isDialog1;
+        private bool isDialog2;
+        private bool isDialog3;
+        private bool isDialog4;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -32,11 +35,14 @@ namespace MATMEH_QUEST
             isTutorial1 = true;
             isTutorial2 = true;
             isMenu = false;
+            isDialog1 = true;
+            isDialog2 = true;
+            isDialog3 = true;
+            isDialog4 = true;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
-            isDecanat = Controller.Game.FlagDecan;
             KeyDown += (sender, args) =>
             {
                 Controller.Action(args);
@@ -60,9 +66,16 @@ namespace MATMEH_QUEST
             {
                 PaintMenu(graphics);
             }
-            else if (isDecanat)
+            else if (Controller.Game.FlagDecan)
             {
-                PaintDialogWihtD(graphics, Resources.Декан_Разговор_1, 0, 0, Next1OnClick);
+                if(isDialog1)
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог1, 190, 880, Dialog1OnClick);
+                else if(isDialog2)
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 880, Dialog2OnClick);
+                else if (isDialog3)
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 880, Dialog3OnClick);
+                else if (isDialog4)
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 190, 880, Dialog4OnClick);
             }
             else
             {
@@ -103,15 +116,15 @@ namespace MATMEH_QUEST
             }
         }
 
-        private void PaintDialogWihtD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
+        private void PaintDialogWithD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
         {
             BackgroundImage = image;
-            BackgroundImageLayout = ImageLayout.Zoom;
+            BackgroundImageLayout = ImageLayout.Stretch;
             var button = new Button
             {
                 BackColor = Color.Transparent,
-                Size = new Size(width, 90),
-                Location = new Point(x, 555),
+                Size = new Size(width, 65),
+                Location = new Point(x, 655),
                 FlatStyle = FlatStyle.Popup,
                 FlatAppearance =
                 {
@@ -200,8 +213,8 @@ namespace MATMEH_QUEST
             Controller.Game.Room.AvailableX[1] = Size.Width - 200;
             BackgroundImage = Controller.Game.Room.Background;
             BackgroundImageLayout = ImageLayout.Stretch;
-            Invalidate();
             PaintPlayer(graphics);
+            Invalidate();
         }
 
         private void PaintWorld(Graphics graphics)
@@ -210,8 +223,8 @@ namespace MATMEH_QUEST
             BackgroundImage = new Bitmap(Resources.Corridor);
             BackgroundImageLayout = ImageLayout.Stretch;
             graphics.DrawImage(BackgroundImage, Controller.Game.World.Location);
-            Invalidate();
             PaintPlayer(graphics);
+            Invalidate();
         }
 
         private void PaintPlayer(Graphics graphics)
@@ -365,17 +378,39 @@ namespace MATMEH_QUEST
             Invalidate();
         }
 
-        private void Next1OnClick(object sender, EventArgs e)
-        {
-            isDecanat = false;
-            Controls.Clear();
-            Invalidate();
-        }
-
         private void OverButtonOnClick(object sender, EventArgs e)
         {
             isTutorial2 = false;
             Controls.Clear();
+            Invalidate();
+        }
+
+        private void Dialog1OnClick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            isDialog1 = false;
+            Invalidate();
+        }
+
+        private void Dialog2OnClick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            isDialog2 = false;
+            Invalidate();
+        }
+
+        private void Dialog3OnClick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            isDialog3 = false;
+            Invalidate();
+        }
+
+        private void Dialog4OnClick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            isDialog4 = false;
+            Controller.Game.FlagDecan = false;
             Invalidate();
         }
 
