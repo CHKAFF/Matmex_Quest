@@ -4,13 +4,13 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using MATMEH_QUEST.Domain;
-using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST
 {
     public class Controller
     {
         public Game Game;
+
         public Controller(int formWidth)
         {
             Game = new Game();
@@ -30,17 +30,21 @@ namespace MATMEH_QUEST
                     Game.PlayerMoveRight();
                     break;
                 case Keys.E:
-                    Game.EnterInRoom();
-                    break;
-                case Keys.Escape:
-                    if (Game.Room != null) Game.LeaveFromRoom();
-                    break;
-            }
-        }
+                {
 
-        public void NewMission()
-        {
-            Game.MissionSprite = new Bitmap(Resources.задание_1);
+                    if (Game.CurrentAction == CurrentAction.EnterInRoom)
+                        Game.EnterInRoom();
+                    if (Game.CurrentAction == CurrentAction.LeaveRoom)
+                        Game.LeaveFromRoom();
+                    if (Game.CurrentAction == CurrentAction.GiveItem)
+                        Game.GiveItem();
+                    if (Game.CurrentAction == CurrentAction.TalkWithHuman)
+                        Game.TalkWithHuman();
+                    break;
+
+                }
+                        
+            }
         }
     }
 }

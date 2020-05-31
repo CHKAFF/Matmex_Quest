@@ -23,7 +23,7 @@ namespace TESTS
         [Test]
         public void TestItemsIsClear()
         {
-            Assert.AreEqual(0,new Inventory().items.Count);
+            Assert.AreEqual(0,new Inventory().Items.Count);
         }
         
         [Test]
@@ -31,7 +31,7 @@ namespace TESTS
         {
             SetUp();
             inventory.PutItem(item);
-            var actual = inventory.items.ContainsKey(item);
+            var actual = inventory.Items.ContainsKey(item);
             Assert.AreEqual(true, actual);
         }
         
@@ -41,7 +41,7 @@ namespace TESTS
             SetUp();
             inventory.PutItem(item);
             inventory.PutItem(item);
-            var actual = inventory.items.Count;
+            var actual = inventory.Items.Count;
             Assert.AreEqual(1, actual);
         }
         
@@ -68,7 +68,7 @@ namespace TESTS
             SetUp();
             inventory.PutItem(item);
             inventory.PutItem(item);
-            var actual = inventory.items[item];
+            var actual = inventory.Items[item];
             Assert.AreEqual(2, actual);
         }
         

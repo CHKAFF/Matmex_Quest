@@ -6,9 +6,7 @@ namespace MATMEH_QUEST.Domain
     public class Human
     {
         public Point Location;
-        public int Height = 100;
-        public int Width = 200;
-        public int MissionID;
+        public int MissionId;
         
         public enum HumanState
         {
@@ -18,14 +16,14 @@ namespace MATMEH_QUEST.Domain
         }
 
         public HumanState State;
-        public List<Item> expectedItems;
+        public List<Item> ExpectedItems;
 
-        public Human(HumanState state, int missionID,Point location, List<Item> expectedItems = null)
+        public Human(HumanState state, int missionId, Point location, List<Item> expectedItems)
         {
             Location = location;
-            this.MissionID = missionID;
-            this.State = state;
-            this.expectedItems = expectedItems;
+            MissionId = missionId;
+            State = state;
+            ExpectedItems = expectedItems;
         }
 
         public bool IsReady()
@@ -50,13 +48,13 @@ namespace MATMEH_QUEST.Domain
         
         public bool IsCorrectItem(Item item)
         {
-            return (State == HumanState.Awaiting && item.MissionID == MissionID) ? true : false;
+            return (State == HumanState.Awaiting && item.MissionId == MissionId);
         }
 
         public void RemoveBroughtItem(Item item)
         {
             if (IsCorrectItem(item))
-                expectedItems.Remove(item);
+                ExpectedItems.Remove(item);
         }
     }
 }

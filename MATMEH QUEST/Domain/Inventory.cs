@@ -6,36 +6,36 @@ namespace MATMEH_QUEST.Domain
 {
     public class Inventory
     {
-        public Dictionary<Item, int> items;
+        public Dictionary<Item, int> Items;
         public Inventory()
         {
-            items = new Dictionary<Item, int>();
+            Items = new Dictionary<Item, int>();
         }
 
         public bool InInventory(Item item)
         {
-            return items.ContainsKey(item);
+            return Items.ContainsKey(item);
         }
 
         public void PutItem(Item item)
         {
-            var itemInInventory = items
-                .FirstOrDefault(i => i.Key.MissionID == item.MissionID &&
-                                     i.Key.ObjectID == item.ObjectID).Key;
+            var itemInInventory = Items
+                .FirstOrDefault(i => i.Key.MissionId == item.MissionId &&
+                                     i.Key.ObjectId == item.ObjectId).Key;
             if (itemInInventory == null)
-                items[item] = 1;
+                Items[item] = 1;
             else
-                items[itemInInventory] += 1;
+                Items[itemInInventory] += 1;
         }
 
         public int GetItemCount(Item item)
         {
-            return items[item];
+            return Items[item];
         }
 
         public void TakeItem(Item item)
         {
-            items.Remove(item);
+            Items.Remove(item);
         }
         
         

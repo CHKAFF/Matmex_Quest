@@ -153,19 +153,10 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Room1 {
+        public static System.Drawing.Bitmap Выход {
             get {
-                object obj = ResourceManager.GetObject("Room1", resourceCulture);
+                object obj = ResourceManager.GetObject("Выход", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ВЫХОД.
-        /// </summary>
-        public static string Выход {
-            get {
-                return ResourceManager.GetString("Выход", resourceCulture);
             }
         }
         
@@ -202,9 +193,9 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Деканат {
+        public static System.Drawing.Bitmap Деканат_задание {
             get {
-                object obj = ResourceManager.GetObject("Деканат", resourceCulture);
+                object obj = ResourceManager.GetObject("Деканат_задание", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -232,6 +223,36 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap задание_3 {
+            get {
+                object obj = ResourceManager.GetObject("задание_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Кнопка_далее {
+            get {
+                object obj = ResourceManager.GetObject("Кнопка_далее", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Команта1_задание {
+            get {
+                object obj = ResourceManager.GetObject("Команта1_задание", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Логотип {
             get {
                 object obj = ResourceManager.GetObject("Логотип", resourceCulture);
@@ -240,11 +261,22 @@ namespace MATMEH_QUEST.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to НОВАЯ ИГРА.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static string Новая_игра {
+        public static System.Drawing.Bitmap Музыка {
             get {
-                return ResourceManager.GetString("Новая игра", resourceCulture);
+                object obj = ResourceManager.GetObject("Музыка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Новая_игра {
+            get {
+                object obj = ResourceManager.GetObject("Новая игра", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -265,15 +297,6 @@ namespace MATMEH_QUEST.Properties {
             get {
                 object obj = ResourceManager.GetObject("Обучение_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        public static System.IO.UnmanagedMemoryStream Олег_Кензов___По_Кайфу {
-            get {
-                return ResourceManager.GetStream("Олег_Кензов___По_Кайфу", resourceCulture);
             }
         }
     }

@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms.VisualStyles;
-using MATMEH_QUEST.Properties;
 
 namespace MATMEH_QUEST.Domain
 {
@@ -15,9 +13,9 @@ namespace MATMEH_QUEST.Domain
         public Bitmap Background;
         public Room(Bitmap background, List<Human> humans = null, List<Item> levelItems = null)
         {
-            this.Background = background;
-            this.Humans = humans;
-            this.LevelItems = levelItems;
+            Background = background;
+            Humans = humans;
+            LevelItems = levelItems;
         }
 
         public Item GetItem(Point click)
