@@ -13,9 +13,10 @@ namespace MATMEH_QUEST
     public partial class Form1 : Form
     {
         private bool isMusicOff;
-        private bool isMenu;
+        private bool isMainMenu;
         private bool isTutorial1;
         private bool isTutorial2;
+        private bool isMenu;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -26,9 +27,10 @@ namespace MATMEH_QUEST
         private void InitializeComponent()
         {
             isMusicOff = true;
-            isMenu = true;
+            isMainMenu = true;
             isTutorial1 = true;
             isTutorial2 = true;
+            isMenu = false;
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
@@ -41,8 +43,8 @@ namespace MATMEH_QUEST
         protected override void OnPaint(PaintEventArgs e)
         {
             var graphics = e.Graphics;
-            if (isMenu)
-                PaintMenu();
+            if (isMainMenu)
+                PaintMainMenu();
             else if (isTutorial1)
             {
                 PaintTrain(graphics, Resources.Обучение_1, 250, 1050, NextOnClick);
@@ -53,6 +55,19 @@ namespace MATMEH_QUEST
             }
             else
             {
+                var menuButton = new PictureBox()
+                {
+                    Image = Resources.меню,
+                    BackColor = Color.Transparent,
+                    SizeMode = PictureBoxSizeMode.Zoom
+                };
+                menuButton.Click += MenuButtonOnClick;
+                Controls.Add(menuButton);
+                menuButton.Update();
+                if (isMenu)
+                {
+                    PaintMenu(graphics);
+                }
                 if (Controller.Game.Room == null)
                 {
                     Controller.Game.CurrentAction = CurrentAction.EnterInRoom;
@@ -74,7 +89,18 @@ namespace MATMEH_QUEST
                 }
                 var inventory = new Bitmap(Resources.Inventory);
                 graphics.DrawImage(inventory, new Point(Size.Width / 2 - inventory.Width / 2, Size.Height/2 + 290));
+                
             }
+        }
+
+        private void MenuButtonOnClick(object sender, EventArgs e)
+        {
+            isMenu = true;
+        }
+
+        private void PaintMenu(Graphics graphics)
+        {
+            BackgroundImage = Resources.меню;
         }
 
         private void PaintMission(Graphics graphics, Bitmap missionTable, int dy)
@@ -131,7 +157,7 @@ namespace MATMEH_QUEST
             button.Click += eventAction;
         }
 
-        private void PaintMenu()
+        private void PaintMainMenu()
         {
             var backgroundColor = Color.FromArgb(145, 215, 254);
             BackColor = backgroundColor;
@@ -241,7 +267,7 @@ namespace MATMEH_QUEST
 
         private void NewGameOnClick(object sender, EventArgs e)
         {
-            isMenu = false;
+            isMainMenu = false;
             Controls.Clear();
             Invalidate();
         }

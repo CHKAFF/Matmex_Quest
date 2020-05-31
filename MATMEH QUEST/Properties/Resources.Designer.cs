@@ -153,6 +153,16 @@ namespace MATMEH_QUEST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Всплывающее_меню {
+            get {
+                object obj = ResourceManager.GetObject("Всплывающее_меню", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Выход {
             get {
                 object obj = ResourceManager.GetObject("Выход", resourceCulture);
@@ -256,6 +266,16 @@ namespace MATMEH_QUEST.Properties {
         public static System.Drawing.Bitmap Логотип {
             get {
                 object obj = ResourceManager.GetObject("Логотип", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap меню {
+            get {
+                object obj = ResourceManager.GetObject("меню", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
