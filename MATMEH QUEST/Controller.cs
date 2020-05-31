@@ -32,9 +32,8 @@ namespace MATMEH_QUEST
                 case Keys.E:
                 {
                     if (Game.EnterInRoom())
-                        if (Game.LeaveFromRoom())
-                            if (Game.TalkWithHuman())
-                                Game.GiveItem();
+                        if(Game.TalkWithHuman())
+                            Game.LeaveFromRoom();
                     break;
                 }
                         
