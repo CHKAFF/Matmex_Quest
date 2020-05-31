@@ -40,7 +40,7 @@ namespace MATMEH_QUEST
             isDialog2 = true;
             isDialog3 = true;
             isDialog4 = true;
-            isDialog4 = false;
+            missionItem = false;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             WindowState = FormWindowState.Maximized;
             Controller = new Controller(Size.Width);
@@ -73,11 +73,11 @@ namespace MATMEH_QUEST
                 if(isDialog1)
                     PaintDialogWithD(graphics, Resources.Деканат_диалог1, 190, 880, Dialog1OnClick);
                 else if(isDialog2)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 880, Dialog2OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 840, Dialog2OnClick);
                 else if (isDialog3)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 880, Dialog3OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 840, Dialog3OnClick);
                 else if (isDialog4)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 190, 880, Dialog4OnClick);
+                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 190, 840, Dialog4OnClick);
             }
             else
             {
@@ -113,8 +113,22 @@ namespace MATMEH_QUEST
                     PaintRoom(graphics);
                     if (missionItem)
                     {
-                        var a = new PictureBox();
-                        a.Image = Resources.
+                        var list = new PictureBox
+                        {
+                            Image = Resources.Свиток,
+                            Location = new Point(500, 200),
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            BackColor = Color.Transparent
+                        };
+                        Controls.Add(list);
+                        list.Update();
+                        
+                        list.Click += (sender, args) =>
+                        {
+                            list.Location = new Point(100, 600);
+                            list.Size = new Size(10, 10);
+                            Invalidate();
+                        };
                     }
                     PaintMission(graphics, new Bitmap(Resources.задание_3, new Size(290, 120)), 0);
                 }
@@ -416,12 +430,13 @@ namespace MATMEH_QUEST
 
         private void Dialog4OnClick(object sender, EventArgs e)
         {
-            missionItem = true;
             Controls.Clear();
             isDialog4 = false;
             Controller.Game.FlagDecan = false;
+            missionItem = true;
             Invalidate();
         }
+
 
         private void DrawButton(Graphics graphics, Button button)
         {
