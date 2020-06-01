@@ -32,6 +32,7 @@ namespace MATMEH_QUEST
         private bool missionItem1;
         private bool flagM;
         private bool tk;
+        private double proportion;
         private SoundPlayer music;
         private Controller Controller;
         public Form1()
@@ -45,6 +46,7 @@ namespace MATMEH_QUEST
             isMainMenu = true;
             isTutorial1 = true;
             isTutorial2 = true;
+            isTutorial3 = true;
             isMenu = false;
             isDialog1 = true;
             isDialog2 = true;
@@ -60,20 +62,32 @@ namespace MATMEH_QUEST
             missionItem = false;
             flagM = true;
             tk = false;
+            proportion = Width / Height;
             music = new SoundPlayer(Resources._8_bit_Dendy___Smooth_Criminal__musicpro_me_);
             music.Play();
+            StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
             Controller = new Controller(Size.Width);
             DoubleBuffered = true;
             KeyDown += (sender, args) =>
             {
                 Controller.Action(args);
+                Invalidate();
             };
+            Resize += (sender, args) =>
+            {
+                Control control = (Control)sender;
+                control.Width = control.Height * 2;
+                Invalidate();
+            };
+
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             var graphics = e.Graphics;
+            GC.Collect();
             if (isDemo)
             {
                 BackgroundImage = Resources.демоверсия;
@@ -82,58 +96,48 @@ namespace MATMEH_QUEST
                 PaintMainMenu();
             else if (isTutorial1)
             {
-                PaintTrain(graphics, Resources.Обучение_1, 250, 1040, NextOnClick);
+                PaintDialog(graphics, Resources.Обучение_1, 90, 15, 23,80, 23, 17, NextOnClick);
             }
             else if (isTutorial2)
             {
-                PaintTrain(graphics, Resources.Обучение_2, 250, 1035,  NextOnClick);
+                PaintDialog(graphics, Resources.Обучение_2, 90, 15, 23, 80, 23, 17, NextOnClick);
             }
             else if (isTutorial3)
             {
-                PaintTrain(graphics, Resources.Обучение_3, 430, 870, OverButtonOnClick);
+                PaintDialog(graphics, Resources.Обучение_3, 90, 15, 23, 78, 42, 20, OverButtonOnClick);
             }
-            else if (isMenu)
+            else if (isMenu) 
             {
                 PaintMenu(graphics);
             }
             else if (Controller.Game.FlagDecan)
             {
                 if (isDialog1)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог1, 190, 880, Dialog1OnClick);
-                else if(isDialog2)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог2, 190, 880, Dialog2OnClick);
+                    PaintDialog(graphics, Resources.Деканат_диалог1, 179, 20, 20, 118, 28, 62, Dialog1OnClick);
+                else if (isDialog2)
+                    PaintDialog(graphics, Resources.Деканат_диалог2, 179, 20, 20, 118, 28, 62, Dialog2OnClick);
                 else if (isDialog3)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог3, 190, 880, Dialog3OnClick);
+                    PaintDialog(graphics, Resources.Деканат_диалог3, 179, 20, 20, 118, 28, 62, Dialog3OnClick);
                 else if (isDialog4)
-                    PaintDialogWithD(graphics, Resources.Деканат_диалог4, 280, 810, Dialog4OnClick);
+                    PaintDialog(graphics, Resources.Деканат_диалог4, 179, 20, 20, 116, 48, 69, Dialog4OnClick);
             }
             else if (Controller.Game.FlagMatan)
             {
                 if (isDialogM1)
-                {
-                    PaintDialogWithM(graphics, Resources._601_диалог1, 190, 880, DialogM1OnClick);
-                }
+                    PaintDialog(graphics, Resources._601_диалог1, 179, 20, 20, 118, 28, 62, DialogM1OnClick);
                 else if (isDialogM2)
-                    PaintDialogWithM(graphics, Resources._601_диалог2, 190, 880, DialogM2OnClick);
+                    PaintDialog(graphics, Resources._601_диалог2, 179, 20, 20, 118, 28, 62, DialogM2OnClick);
                 else if (isDialogM3)
-                    PaintDialogWithM(graphics, Resources._601_диалог3, 190, 880, DialogM3OnClick);
+                    PaintDialog(graphics, Resources._601_диалог3, 179, 20, 20, 118, 28, 62, DialogM3OnClick);
                 else if (isDialogM4)
-                    PaintDialogWithM(graphics, Resources._601_диалог4, 190, 880, DialogM4OnClick);
+                    PaintDialog(graphics, Resources._601_диалог4, 179, 20, 20, 118, 28, 62, DialogM4OnClick);
                 else if (isDialogM5)
-                    PaintDialogWithM(graphics, Resources._601_диалог5, 290, 780, DialogM5OnClick);
+                    PaintDialog(graphics, Resources._601_диалог5, 179, 20, 20, 116, 48, 69, DialogM5OnClick);
             }
             else
             {
-                var menuButton = new PictureBox()
-                {
-                    Image = Resources.меню,
-                    BackColor = Color.Transparent,
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    Location =  new Point(20, 0)
-                };
-                menuButton.Click += MenuButtonOnClick;
-                Controls.Add(menuButton);
-                menuButton.Update();
+                PaintMenuButton();
+                GC.Collect();
                 if (isMenu)
                 {
                     PaintMenu(graphics);
@@ -143,15 +147,10 @@ namespace MATMEH_QUEST
                     PaintWorld(graphics);
                     if (flagM)
                     {
-                        if (Controller.Game.World.Location.X > -5600)
-                        {
-                            PaintMission(graphics, new Bitmap(Resources.задание_1, new Size(290, 120)), 0);
-                        }
-                        else
-                        {
-
-                            PaintMission(graphics, new Bitmap(Resources.задание_2, new Size(290, 120)), 0);
-                        }
+                        PaintMission(graphics,
+                            Controller.Game.World.Location.X > -5600
+                                ? new Bitmap(Resources.задание_1, new Size(290, 120))
+                                : new Bitmap(Resources.задание_2, new Size(290, 120)), 0);
                     }
                 }
                 else if(Controller.Game.Room != null)
@@ -221,7 +220,7 @@ namespace MATMEH_QUEST
                         Controls.Clear();
                         Invalidate();
                     };
-                    var l = new PictureBox()
+                    var l = new PictureBox
                     {
                         Image = Resources.Табличка,
                         Location = new Point(1000, 650),
@@ -259,33 +258,27 @@ namespace MATMEH_QUEST
             button.Click += eventAction;
         }
 
-        private void PaintDialogWithD(Graphics graphics, Bitmap image, int  width, int x, EventHandler eventAction)
-        {
-            BackgroundImage = image;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            var button = new Button
-            {
-                BackColor = Color.Transparent,
-                Size = new Size(width, 65),
-                Location = new Point(x, 655),
-                FlatStyle = FlatStyle.Popup,
-                FlatAppearance =
-                {
-                    BorderSize = 0
-                }
-            };
-            Controls.Add(button);
-            DrawButton(graphics, button);
-            button.Update();
-            button.Click += eventAction;
-        }
-
         private void MenuButtonOnClick(object sender, EventArgs e)
         {
             Controls.Clear();
             isMenu = true;
             Invalidate();
         }
+
+        private void PaintMenuButton()
+        {
+            var menuButton = new PictureBox()
+            {
+                Image = Resources.меню,
+                BackColor = Color.Transparent,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Location = new Point(20, 0)
+            };
+            menuButton.Click += MenuButtonOnClick;
+            Controls.Add(menuButton);
+            menuButton.Update();
+        }
+
 
         private void PaintMenu(Graphics graphics)
         {
@@ -338,13 +331,6 @@ namespace MATMEH_QUEST
             exit.Click += ExitOnClick;
         }
 
-        private void ReturnButtonOnClick(object sender, EventArgs e)
-        {
-            isMenu = false;
-            Controls.Clear();
-            Invalidate();
-        }
-
         private void PaintMission(Graphics graphics, Bitmap missionTable, int dy)
         {
             graphics.DrawImage(missionTable,
@@ -377,23 +363,41 @@ namespace MATMEH_QUEST
             Invalidate();
         }
 
-        private void PaintTrain(Graphics graphics, Bitmap image, int width, int x, EventHandler eventAction)
+        private void PaintDialog(Graphics graphics, Bitmap image, int p1, int p2, int p3, int c1, int c2, int c3, EventHandler eventAction)
         {
-            BackColor = Color.SandyBrown;
-            BackgroundImage = image;
-            BackgroundImageLayout = ImageLayout.Zoom;
+            var table = new TableLayoutPanel();
+            table.RowStyles.Clear();
+            table.ColumnStyles.Clear();
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, p1));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, p2));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, p3));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, c1));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, c2));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, c3));
+            table.BackColor = Color.SandyBrown;
+            table.BackgroundImage = image;
+            table.BackgroundImageLayout = ImageLayout.Stretch;
+
             var button = new Button
             {
                 BackColor = Color.Transparent,
-                Size = new Size(width, 90),
-                Location = new Point(x, 555),
                 FlatStyle = FlatStyle.Popup,
                 FlatAppearance =
                 {
                     BorderSize = 0
-                }
+                },
+                AutoSizeMode = AutoSizeMode.GrowOnly
             };
-            Controls.Add(button);
+            button.Dock = DockStyle.Fill;
+
+            table.Controls.Add(new Control(), 0, 0);
+            table.Controls.Add(button, 1, 1);
+            table.Controls.Add(new Control(), 2, 2);
+
+            table.Dock = DockStyle.Fill;
+            Controls.Add(table);
+            table.Update();
+
             DrawButton(graphics, button);
             button.Update();
             button.Click += eventAction;
@@ -402,8 +406,8 @@ namespace MATMEH_QUEST
         private void PaintMainMenu()
         {
             var backgroundColor = Color.FromArgb(145, 215, 254);
-            BackColor = backgroundColor;
             var table = new TableLayoutPanel();
+            table.BackColor = backgroundColor;
             table.RowStyles.Clear();
             table.ColumnStyles.Clear();
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
@@ -528,6 +532,7 @@ namespace MATMEH_QUEST
                 isTutorial3 = true;
             }
             Controls.Clear();
+            Update();
             Invalidate();
         }
 
@@ -538,10 +543,19 @@ namespace MATMEH_QUEST
             Invalidate();
         }
 
+        private void ReturnButtonOnClick(object sender, EventArgs e)
+        {
+            isMenu = false;
+            Controls.Clear();
+            Update();
+            Invalidate();
+        }
+
         private void Dialog1OnClick(object sender, EventArgs e)
         {
             Controls.Clear();
             isDialog1 = false;
+            Update();
             Invalidate();
         }
 
@@ -549,6 +563,7 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialog2 = false;
+            Update();
             Invalidate();
         }
 
@@ -556,6 +571,7 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialog3 = false;
+            Update();
             Invalidate();
         }
 
@@ -567,6 +583,7 @@ namespace MATMEH_QUEST
             isDialog4 = false;
             Controller.Game.FlagDecan = false;
             missionItem = true;
+            Update();
             Invalidate();
         }
 
@@ -574,6 +591,7 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialogM1 = false;
+            Update();
             Invalidate();
         }
 
@@ -581,6 +599,7 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialogM2 = false;
+            Update();
             Invalidate();
         }
 
@@ -588,6 +607,7 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialogM3 = false;
+            Update();
             Invalidate();
         }
 
@@ -595,13 +615,16 @@ namespace MATMEH_QUEST
         {
             Controls.Clear();
             isDialogM4 = false;
+            Update();
             Invalidate();
         }
+       
         private void DialogM5OnClick(object sender, EventArgs e)
         {
             flagM = false;
             Controls.Clear();
             isDemo = true;
+            Update();
             Invalidate();
         }
 
