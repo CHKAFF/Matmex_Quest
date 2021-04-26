@@ -23,4 +23,4 @@
 
 
 ## Прототип в FIGMA
-Ссфлка - https://www.figma.com/file/Nm0vIfTQc31YHxviMSflY2/MaxMet-QUEST?node-id=0%3A1
+Ссылка - https://www.figma.com/file/Nm0vIfTQc31YHxviMSflY2/MaxMet-QUEST?node-id=0%3A1
